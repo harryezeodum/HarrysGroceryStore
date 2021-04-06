@@ -1,0 +1,63 @@
+﻿@model HarrysGroceryStore.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body class="container">
+    <header>
+        <h2 class="text-primary">Harrys Grocery Store</h2>
+        <div>
+            <pre class="text-primary font-weight-bold ">
+       23564 Holly Spring Way          Store Hours                                                                      
+       Houston, TX 77032               Monday to Sunday              
+       281-482-1234                    8AM to 7PM                                                    <strong><a asp-action="">Products</a></strong>   <strong><a asp-action="">Track Orders</a></strong>   <strong><a asp-action="">My Items</a></strong>  <strong><a asp-action="">Log out</a></strong>
+    </pre>
+        </div> <hr />
+    </header>
+    <div>
+        <h4 style="color : cornflowerblue" class="m-2 p-2">  Profile & Password </h4>
+        <h5 style="color : cornflowerblue" class="m-2 p-2">  Your personal information </h5> <hr />
+    </div>
+    <div class="container m-2 p-2">
+        <label class="font-weight-bold">First Name: </label> <br />
+
+        @Model.FirstName
+    </div>
+    <div class="container m-2 p-2">
+        <label class="font-weight-bold">Last Name: </label> <br />
+
+        @Model.LastName
+
+    </div>
+    <div class="container m-2 p-2">
+        <label class="font-weight-bold">Email: </label> <br />
+
+        @Model.Email
+
+    </div>
+    <div class="container m-2 p-2">
+        <label class="font-weight-bold">Phone Number: </label> <br />
+
+        @Model.PhoneNumber
+
+    </div>
+    <div class="container m-2 p-2">
+        <label class="font-weight-bold">Password: </label> <br />
+
+        @Model.PassWord
+    </div>
+    <div class="container m-2 p-2">
+        <a asp-controller="User" asp-action="EditProfile" asp-route-firstName="James" class="btn btn-success"> Edit </a>
+    </div>
+</body>
+</html>

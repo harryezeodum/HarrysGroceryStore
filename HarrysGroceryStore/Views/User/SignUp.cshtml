@@ -1,0 +1,61 @@
+﻿@model HarrysGroceryStore.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body class="container">
+    <header>
+        <h3 class="text-primary">Harrys Grocery Store</h3>
+        <div>
+            <pre class="text-primary font-weight-bold">
+       23564 Holly Spring Way          Store Hours     
+       Houston, TX 77032               Monday to Sunday
+       281-482-1234                    8AM to 7PM                                                                     <strong><a asp-controller="Home" asp-action="WelcomePage">Home</a></strong>   <strong> <a asp-controller="User" asp-action="LogIn">Log in</a></strong>   <strong><a asp-controller="Home" asp-action="Contact">Contact</a> </strong>
+            </pre>        
+        </div> <hr />
+    </header>
+    <div class="container">
+        <h2 class="text-center m-2 p-2">Sign Up</h2>
+        <form method="post" class="m-2">
+            <div asp-validation-summary="All"></div>
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="FirstName">First Name</label>
+                <input asp-for="FirstName" class="form-control" placeholder="Enter your first name" /> <br />
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="LastName">Last Name</label>
+                <input asp-for="LastName" class="form-control" placeholder="Enter your last name" />
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="PhoneNumber">Phone Number</label>
+                <input asp-for="PhoneNumber" class="form-control" placeholder="Enter your phone number" />
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="PassWord">Choose a password</label>
+                <input asp-for="PassWord" type="password" class="form-control" placeholder="***************" />
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold" asp-for="ConfirmPassword">Confirm your password</label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="***************" />
+            </div>
+            <div class="text-center">
+                <input type="submit" asp-controller="User" asp-action="SignedOn" class="btn btn-success font-weight-bold" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
