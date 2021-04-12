@@ -1,0 +1,32 @@
+﻿@model User
+
+<form asp-controller="User" asp-action="CreateUser" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="FirstName">First Name</label>
+        <input asp-for="FirstName" class="form-control" placeholder="Enter your first name" /> <br />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="LastName">Last Name</label>
+        <input asp-for="LastName" class="form-control" placeholder="Enter your last name" />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="Email">Email</label>
+        <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="PhoneNumber">Phone Number</label>
+        <input asp-for="PhoneNumber" class="form-control" placeholder="Enter your phone number" />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="PassWord">Choose a password</label>
+        <input asp-for="PassWord" type="password" class="form-control" placeholder="***************" />
+    </div>
+    <div class="form-group">
+        <label class="font-weight-bold" asp-for="ConfirmPassword">Confirm your password</label>
+        <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="***************" />
+    </div>
+    <div class="text-center">
+        <input type="submit" value="Add User" /> <input type="submit" asp-action="Index" value="Back" />
+    </div>
+</form>

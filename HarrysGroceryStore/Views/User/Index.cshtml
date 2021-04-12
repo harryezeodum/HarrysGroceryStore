@@ -1,0 +1,22 @@
+﻿@model IQueryable<User>
+
+<h2> List of Users </h2>
+<hr />
+
+@foreach (User user in Model)
+{
+    <h5> <a asp-action="Details" asp-route-id="@user.UserId">@user.FirstName @user.LastName </a> </h5>
+    <hr />
+}
+
+<a asp-controller="User" asp-action="CreateUser" class="btn btn-dark"> Add a new user </a>
+<hr />
+
+<div>
+    @for (int i = 1; i <= ViewBag.UserCount / 6; i++)
+    {
+        <a asp-action="Index" asp-route-userPage="@i"> @i  </a>
+        @:&nbsp; | &nbsp;
+    }
+</div>
+

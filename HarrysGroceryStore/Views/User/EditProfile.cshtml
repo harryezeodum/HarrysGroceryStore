@@ -20,7 +20,7 @@
             <pre class="text-primary font-weight-bold ">
        23564 Holly Spring Way          Store Hours                                                                      
        Houston, TX 77032               Monday to Sunday              
-       281-482-1234                    8AM to 7PM                                           <strong><a asp-action="">Products</a></strong>   <strong><a asp-action="">Track Orders</a></strong>   <strong><a asp-action="ProfileDetails">Account</a> </strong> <strong><a asp-action="">My Items</a></strong>  <strong><a asp-action="">Log out</a></strong>
+       281-482-1234                    8AM to 7PM                                           <strong><a asp-controller="Product" asp-action="">Products</a></strong>   <strong><a asp-action="">Track Orders</a></strong>   <strong><a asp-controller="User" asp-action="Update">Account</a> </strong> <strong><a asp-action="">My Items</a></strong>  <strong><a asp-action="">Log out</a></strong>
     </pre>
         </div> <hr />
     </header>
@@ -53,8 +53,7 @@
                 <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="***************" />
             </div>
             <div class="text-center">
-                <input type="submit" class="btn btn-success font-weight-bold" value="Save">
-                <a asp-controller="User" asp-action="ProfileDetails" class="btn btn-success"> Cancel </a>
+                <input type="submit" value="Add User" /> <input type="submit" asp-controller="Home" asp-action="WelcomePage" value="Back" />
             </div>
         </form>
     </div>

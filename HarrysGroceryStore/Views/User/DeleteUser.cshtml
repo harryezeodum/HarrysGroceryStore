@@ -1,0 +1,17 @@
+﻿@model User
+
+<label class="font-weight-bold"> First Name: </label> @Model.FirstName
+<br />
+<label class="font-weight-bold"> Last Name: </label> @Model.LastName
+<br />
+<label class="font-weight-bold"> Phone Number: </label> @Model.PhoneNumber
+<br />
+<label class="font-weight-bold"> Email: </label> @Model.Email
+<br />
+<label class="font-weight-bold"> Password: </label> @Model.PassWord
+<br />
+<h3> Are You Sure? </h3>
+<form method="post">
+    <input type="submit" asp-action="DeleteUser" value="Delete" />
+    <input type="submit" asp-action="Details" asp-route-id="@Model.UserId" formmethod="get" value="Cancel" />
+</form>

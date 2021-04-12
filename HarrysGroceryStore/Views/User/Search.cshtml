@@ -1,0 +1,20 @@
+﻿@model IQueryable<User>
+
+
+<hr />
+@foreach (User u in Model)
+{
+    <label class="font-weight-bold"> First Name: </label> @u.FirstName
+    <br />
+    <label class="font-weight-bold"> Last Name: </label> @u.LastName
+    <br />
+    <label class="font-weight-bold"> Phone Number: </label> @u.PhoneNumber
+    <br />
+    <label class="font-weight-bold"> Email: </label> @u.Email
+    <br />
+    <label class="font-weight-bold"> Choose a password: </label> @u.PassWord
+    <br />
+    <hr />
+}
+
+
