@@ -1,0 +1,13 @@
+﻿@model User
+
+<label class="font-weight-bold"> User Id: </label> @Model.UserId
+<br />
+<label class="font-weight-bold"> Email: </label> @Model.Email
+<br />
+<label class="font-weight-bold"> Password: </label> @Model.PassWord
+<br />
+<hr />
+
+<a asp-controller="User" asp-action="UpdateUser" asp-route-id="@Model.UserId" class="btn btn-dark"> Edit User </a>
+<a asp-controller="User" asp-action="DeleteUser" class="btn btn-dark" asp-route-id="@Model.UserId"> Delete User </a>
+<a asp-controller="User" asp-action="Index" asp-route-id="@Model.UserId" class="btn btn-dark"> Back </a>

@@ -25,8 +25,14 @@ namespace HarrysGroceryStore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(_configuration.GetConnectionString("AzureDatabase")));
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ICustomerRepository, EfCustomerRepository>();
+            services.AddScoped<IEmployeeRepository, EfEmployeeRepository>();
+            services.AddScoped<IOrderDetailRepository, EfOrderDetailRepository>();
+            services.AddScoped<IProductRepository, EfProductRepository>();
+            services.AddScoped<ISalesOrderRepository, EfSalesOrderRepository>();
+            services.AddScoped<ISupplierRepository, EfSupplierRepository>();
             services.AddControllersWithViews();
         }
 
@@ -54,6 +60,13 @@ namespace HarrysGroceryStore
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("pigination", "Users/Page{userPage}", new { Controller = "User", action = "Index" });
+                endpoints.MapControllerRoute("pigination", "Customers/Page{customerPage}", new { Controller = "Customer", action = "Index" });
+                endpoints.MapControllerRoute("pigination", "Employees/Page{employeePage}", new { Controller = "Employee", action = "Index" });
+                endpoints.MapControllerRoute("pigination", "OrderDetails/Page{orderDetailPage}", new { Controller = "OrderDetail", action = "Index" });
+                endpoints.MapControllerRoute("pigination", "Products/Page{productPage}", new { Controller = "Product", action = "Index" });
+                endpoints.MapControllerRoute("pigination", "SalesOrders/Page{salesOrderPage}", new { Controller = "SalesOrder", action = "Index" });
+                endpoints.MapControllerRoute("pigination", "Suppliers/Page{supplierPage}", new { Controller = "Supplier", action = "Index" });
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=WelcomePage}/{id?}");

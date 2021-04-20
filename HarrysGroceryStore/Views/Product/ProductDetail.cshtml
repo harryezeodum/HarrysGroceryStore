@@ -1,0 +1,18 @@
+﻿@model Product
+
+<label class="font-weight-bold"> Product Id: </label> @Model.ProductId
+<br />
+<label class="font-weight-bold"> Product Name: </label> @Model.ProductName
+<br />
+<label class="font-weight-bold"> Price: </label> @Model.Price.ToString("C")
+<br />
+<label class="font-weight-bold"> Category: </label> @Model.Category
+<br />
+<label class="font-weight-bold"> Supplier Id: </label> @Model.SupplierId
+<br />
+<hr />
+
+
+<a asp-controller="Product" asp-action="UpdateProduct" asp-route-id="@Model.ProductId" class="btn btn-dark"> Edit Product </a>
+<a asp-controller="Product" asp-action="DeleteProduct" class="btn btn-dark" asp-route-id="@Model.ProductId"> Delete Product </a>
+<a asp-controller="Product" asp-action="Index" asp-route-id="@Model.ProductId" class="btn btn-dark"> Back </a>

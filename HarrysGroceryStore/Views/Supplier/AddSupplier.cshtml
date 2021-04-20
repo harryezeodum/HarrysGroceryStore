@@ -1,0 +1,27 @@
+﻿@model Supplier
+
+<form asp-controller="Supplier" asp-action="AddSupplier" method="post">
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="CompanyName"> Company Name: </label></th>
+            <td> <input asp-for="CompanyName" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="ContactName"> Contact Name: </label> </th>
+            <td> <input asp-for="ContactName" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="ContactEmail"> Contact Email: </label></th>
+            <td> <input asp-for="ContactEmail"  /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="ContactPhone"> Contact Phone: </label></th>
+            <td> <input asp-for="ContactPhone" placeholder="123-456-7890" /> </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-dark" value="Add Supplier" /> <input type="submit" class="btn btn-dark" asp-action="Index" value="Back" /> </td>
+        </tr>
+    </table>
+</form>
+

@@ -1,0 +1,20 @@
+﻿@model IQueryable<Product>
+
+
+<hr />
+@foreach (Product p in Model)
+{
+    <label class="font-weight-bold"> Product Id: </label> @p.ProductId
+    <br />
+    <label class="font-weight-bold"> Product Name: </label> @p.ProductName
+    <br />
+    <label class="font-weight-bold"> Price: </label> @p.Price.ToString("C")
+    <br />
+    <label class="font-weight-bold"> Category: </label> @p.Category
+    <br />
+    <label class="font-weight-bold"> Supplier Id: </label> @p.SupplierId
+    <br />
+    <hr />
+}
+
+

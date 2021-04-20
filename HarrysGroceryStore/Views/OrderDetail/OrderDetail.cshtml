@@ -1,0 +1,18 @@
+﻿@model OrderDetail
+
+<label class="font-weight-bold"> OrderDetail Id: </label> @Model.OrderId
+<br />
+<label class="font-weight-bold"> Order Id: </label> @Model.OrderId
+<br />
+<label class="font-weight-bold"> Product Id: </label> @Model.ProductId
+<br />
+<label class="font-weight-bold"> Unit Price: </label> @Model.UnitPrice.ToString("C")
+<br />
+<label class="font-weight-bold"> Quantity: </label> @Model.Quantity
+<br />
+
+<hr />
+
+<a asp-controller="OrderDetail" asp-action="UpdateOrderDetail" asp-route-id="@Model.OrderDetailId" class="btn btn-dark"> Edit OrderDetail </a>
+<a asp-controller="OrderDetail" asp-action="DeleteOrderDetail" class="btn btn-dark" asp-route-id="@Model.OrderDetailId"> Delete OrderDetail </a>
+<a asp-controller="OrderDetail" asp-action="Index" asp-route-id="@Model.OrderDetailId" class="btn btn-dark"> Back </a>

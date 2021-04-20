@@ -1,0 +1,28 @@
+﻿@model IQueryable<Customer>
+
+
+<hr />
+@foreach (Customer c in Model)
+{
+    <label class="font-weight-bold"> Customer Id: </label> @c.CustomerId
+    <br />
+    <label class="font-weight-bold"> User Id: </label> @c.UserId
+    <br />
+    <label class="font-weight-bold"> First Name: </label> @c.FirstName
+    <br />
+    <label class="font-weight-bold"> Last Name: </label> @c.LastName
+    <br />
+    <label class="font-weight-bold"> Phone Number: </label> @c.PhoneNumber
+    <br />
+    <label class="font-weight-bold"> Address: </label> @c.Address
+    <br />
+    <label class="font-weight-bold"> City: </label> @c.City
+    <br />
+    <label class="font-weight-bold"> State: </label> @c.State
+    <br />
+    <label class="font-weight-bold"> ZipCode: </label> @c.ZipCode
+    <br />
+    <hr />
+}
+
+

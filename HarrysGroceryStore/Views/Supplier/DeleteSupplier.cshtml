@@ -1,0 +1,18 @@
+﻿@model Supplier
+
+<label class="font-weight-bold"> Supplier Id: </label> @Model.SupplierId
+<br />
+<label class="font-weight-bold"> Company Name: </label> @Model.CompanyName
+<br />
+<label class="font-weight-bold"> Contact Name: </label> @Model.ContactName
+<br />
+<label class="font-weight-bold"> Contact Email: </label> @Model.ContactEmail
+<br />
+<label class="font-weight-bold"> Contact Number: </label> @Model.ContactPhone
+<br />
+<hr />
+<h4> Are You Sure? </h4>
+<form method="post">
+    <input type="submit" asp-action="DeleteSupplier" class="btn btn-dark" value="Delete" />
+    <input type="submit" asp-action="SupplierDetail" class="btn btn-dark" asp-route-id="@Model.SupplierId" formmethod="get" value="Cancel" />
+</form>

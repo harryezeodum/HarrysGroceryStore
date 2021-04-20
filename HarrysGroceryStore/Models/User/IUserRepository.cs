@@ -7,7 +7,7 @@ namespace HarrysGroceryStore.Models
 {
     public interface IUserRepository
     {
-        public User CreateUser(User user);
+        public User AddUser(User user);
         
         public IQueryable<User> GetAllUsers();
         

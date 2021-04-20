@@ -17,28 +17,15 @@ namespace HarrysGroceryStore.Controllers
             _repository = repository;
         }
 
-        [HttpGet]
-        public IActionResult SignUp()
+        public IActionResult AddUser()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult SignUp(User user)
+        public IActionResult AddUser(User user)
         {
-            _repository.CreateUser(user);
-            return RedirectToAction("Main");
-        }
-
-        public IActionResult CreateUser()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CreateUser(User user)
-        {
-            _repository.CreateUser(user);
+            _repository.AddUser(user);
             return RedirectToAction("Index");
         }
 
@@ -46,88 +33,67 @@ namespace HarrysGroceryStore.Controllers
         {
             IQueryable<User> allUsers = _repository.GetAllUsers();
             IQueryable<User> someUsers = allUsers.OrderBy(u => u.UserId).Skip((userPage - 1) * _pageSize).Take(_pageSize);
-            ViewBag.userCount = allUsers.Count();
 
-            return View(someUsers);
+            ListViewModel user = new ListViewModel();
+
+            PagingInfo pi = new PagingInfo();
+            pi.TotalItems = allUsers.Count();
+            pi.ItemsPerPage = _pageSize;
+            pi.CurrentPage = userPage;
+
+            user.PagingInformation = pi;
+            user.Users = someUsers;
+
+            return View(user);
         }
 
-        public IActionResult Details(int id)
+        public IActionResult UserDetail(int id)
         {
-            User u = _repository.GetUserById(id);
-            if (u != null)
+            User user = _repository.GetUserById(id);
+            if (user != null)
             {
-                return View(u);
+                return View(user);
             }
             return RedirectToAction("Index");
         }
 
-        //public ViewResult ProfileDetails()
-        //{
-        //
-        //}
-        //
-        //[HttpGet]
-        //public IActionResult EditProfile(string firstName)
-        //{
-        //
-        //}
-        //
-        //[HttpPost]
-        //public IActionResult EditProfile(User edit)
-        //{
-        //    //if (ModelState.IsValid)
-        //    //{
-        //    //    if (edit.PassWord == edit.ConfirmPassword)
-        //    //    {
-        //    //        return RedirectToAction("ProfileDetails", edit); ;
-        //    //    }
-        //    //    ModelState.AddModelError("", "Password don't match");
-        //    //}
-        //    return View(edit);
-        //}
-
-        public IActionResult Main()
+        public IActionResult SearchUser(string keyword)
         {
-            return View();
-        }
-
-        public IActionResult Search(string keyword)
-        {
-            IQueryable<User> u = _repository.GetUsersByKeyword(keyword);
-            return View(u);
+            IQueryable<User> user = _repository.GetUsersByKeyword(keyword);
+            return View(user);
         }
 
         [HttpGet]
-        public IActionResult Update(int id)
+        public IActionResult UpdateUser(int id)
         {
-            User u = _repository.GetUserById(id);
-            if (u != null)
+            User user = _repository.GetUserById(id);
+            if (user != null)
             {
-                return View(u);
+                return View(user);
             }
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public IActionResult Update(User u)
+        public IActionResult UpdateUser(User user)
         {
-            User updatedProduct = _repository.UpdateUser(u);
-            return RedirectToAction("Details", new { id = u.UserId });
+            User updatedProduct = _repository.UpdateUser(user);
+            return RedirectToAction("UserDetail", new { id = user.UserId });
         }
 
         [HttpGet]
         public IActionResult DeleteUser(int id)
         {
-            User u = _repository.GetUserById(id);
-            if (u != null)
+            User user = _repository.GetUserById(id);
+            if (user != null)
             {
-                return View(u);
+                return View(user);
             }
             return RedirectToAction("Index");
         }
 
         [HttpPost]
-        public IActionResult DeleteUser(User u, int id)
+        public IActionResult DeleteUser(User user, int id)
         {
             _repository.DeleteUser(id);
             return RedirectToAction("Index");

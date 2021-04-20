@@ -1,0 +1,43 @@
+﻿@model Employee
+
+<form asp-controller="Employee" asp-action="AddEmployee" method="post">
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="FirstName"> First Name: </label></th>
+            <td> <input asp-for="FirstName" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="LastName"> Last Name: </label> </th>
+            <td> <input asp-for="LastName" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="HireDate"> Hire Date: </label></th>
+            <td> <input asp-for="HireDate" placeholder="MM-DD-YEAR"/> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="PhoneNumber"> Phone Number: </label></th>
+            <td> <input asp-for="PhoneNumber" placeholder="123-456-7890" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Address"> Address: </label></th>
+            <td> <input asp-for="Address" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="City"> City: </label> </th>
+            <td> <input asp-for="City" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="State"> State: </label></th>
+            <td> <input asp-for="State" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="ZipCode"> ZipCode: </label></th>
+            <td> <input asp-for="ZipCode" /> </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-dark" value="Add Employee" /> <input type="submit" class="btn btn-dark" asp-action="Index" value="Back" /> </td>
+        </tr>
+    </table>
+</form>
+

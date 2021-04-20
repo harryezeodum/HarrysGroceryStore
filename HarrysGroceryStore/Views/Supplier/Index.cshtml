@@ -1,0 +1,23 @@
+﻿@model ListViewModel
+
+<div class="bg-dark p-2 text-white text-center">
+    <h3><span class="navbar-brand ml-2 badge"> List of @Model.Suppliers.Count() Suppliers </span></h3>
+</div>
+<hr />
+
+@foreach (var supplier in Model.Suppliers)
+ {
+    <div class="card card-outline-primary m-1 p-1">
+        <div class="fg-faded p-1">
+            <h4>
+                <a asp-action="SupplierDetail" asp-route-id=" @supplier.SupplierId"> @supplier.CompanyName </a>
+            </h4>
+        </div>
+    </div>
+ }
+
+<a asp-controller="Supplier" asp-action="AddSupplier" class="btn btn-dark"> Add a new Supplier </a>
+<hr />
+
+<div page-model="@Model.PagingInformation" page-action="Index" page-class-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+

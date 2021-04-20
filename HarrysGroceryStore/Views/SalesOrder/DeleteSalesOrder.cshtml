@@ -1,0 +1,31 @@
+﻿@model SalesOrder
+
+<label class="font-weight-bold"> Order Id: </label> @Model.OrderId
+<br />
+<label class="font-weight-bold"> Employee Id: </label> @Model.EmployeeId
+<br />
+<label class="font-weight-bold"> Customer Id: </label> @Model.CustomerId
+<br />
+<label class="font-weight-bold"> OrderDetail Id: </label> @Model.OrderDetailId
+<br />
+<label class="font-weight-bold"> Sales Amount: </label> @Model.SalesAmount.ToString("C")
+<br />
+<label class="font-weight-bold"> Order Date: </label> @Model.OrderDate
+<br />
+<label class="font-weight-bold"> Shipped Date: </label> @Model.ShippedDate
+<br />
+<label class="font-weight-bold"> Address: </label> @Model.ShipAddress
+<br />
+<label class="font-weight-bold"> City: </label> @Model.ShipCity
+<br />
+<label class="font-weight-bold"> State: </label> @Model.State
+<br />
+<label class="font-weight-bold"> ZipCode: </label> @Model.Zipcode
+<br />
+<hr />
+
+<h4> Are You Sure? </h4>
+<form method="post">
+    <input type="submit" asp-action="DeleteSalesOrder" class="btn btn-dark" value="Delete" />
+    <input type="submit" asp-action="SalesOrderDetail" class="btn btn-dark" asp-route-id="@Model.OrderId" formmethod="get" value="Cancel" />
+</form>

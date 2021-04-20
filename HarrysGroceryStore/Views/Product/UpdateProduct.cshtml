@@ -1,0 +1,24 @@
+﻿@model Product
+
+<form method="post">
+    <input type="hidden" asp-for="ProductId" />
+    <input type="hidden" asp-for="SupplierId" />
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="ProductName"> Product Name: </label></th>
+            <td> <input asp-for="ProductName" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="Price"> Price: </label> </th>
+            <td> <input asp-for="Price" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Category"> Category: </label></th>
+            <td> <input asp-for="Category" /> </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-dark" value="Update Product" /> <input type="submit" class="btn btn-dark" asp-controller="Product" asp-action="ProductDetail" asp-route-id="@Model.ProductId" value="Cancel" /> /> </td>
+        </tr>
+    </table>
+</form>

@@ -14,7 +14,7 @@ namespace HarrysGroceryStore.Models
             _context = context;
         }
 
-        public User CreateUser(User user)
+        public User AddUser(User user)
         {
             _context.Users.Add(user);
             _context.SaveChanges();
@@ -34,7 +34,7 @@ namespace HarrysGroceryStore.Models
         
         public IQueryable<User> GetUsersByKeyword(string keyword)
         {
-            IQueryable<User> users = _context.Users.Where(p => p.FirstName.Contains(keyword) || p.LastName.Contains(keyword));
+            IQueryable<User> users = _context.Users.Where(p => p.Email.Contains(keyword));
             return users;
         }
         
@@ -43,10 +43,7 @@ namespace HarrysGroceryStore.Models
             User userToUpdate = _context.Users.Find(user.UserId);
             if (userToUpdate != null)
             {
-                userToUpdate.FirstName = user.FirstName;
-                userToUpdate.LastName = user.LastName;
                 userToUpdate.Email = user.Email;
-                userToUpdate.PhoneNumber = user.PhoneNumber;
                 userToUpdate.PassWord = user.PassWord;
                 _context.SaveChanges();
             }

@@ -1,0 +1,18 @@
+﻿@model Supplier
+
+<label class="font-weight-bold"> Supplier Id: </label> @Model.SupplierId
+<br />
+<label class="font-weight-bold"> Company Name: </label> @Model.CompanyName
+<br />
+<label class="font-weight-bold"> Contact Name: </label> @Model.ContactName
+<br />
+<label class="font-weight-bold"> Contact Email: </label> @Model.ContactEmail
+<br />
+<label class="font-weight-bold"> Contact Number: </label> @Model.ContactPhone
+<br />
+<hr />
+
+
+<a asp-controller="Supplier" asp-action="UpdateSupplier" asp-route-id="@Model.SupplierId" class="btn btn-dark"> Edit Supplier </a>
+<a asp-controller="Supplier" asp-action="DeleteSupplier" class="btn btn-dark" asp-route-id="@Model.SupplierId"> Delete Supplier </a>
+<a asp-controller="Supplier" asp-action="Index" asp-route-id="@Model.SupplierId" class="btn btn-dark"> Back </a>

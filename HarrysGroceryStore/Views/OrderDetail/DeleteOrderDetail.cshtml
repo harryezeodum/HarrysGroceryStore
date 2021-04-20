@@ -1,0 +1,20 @@
+﻿@model OrderDetail
+
+<label class="font-weight-bold"> OrderDetail Id: </label> @Model.OrderId
+<br />
+<label class="font-weight-bold"> Order Id: </label> @Model.OrderId
+<br />
+<label class="font-weight-bold"> Product Id: </label> @Model.ProductId
+<br />
+<label class="font-weight-bold"> Unit Price: </label> @Model.UnitPrice.ToString("C")
+<br />
+<label class="font-weight-bold"> Quantity: </label> @Model.Quantity
+<br />
+
+<hr />
+
+<h4> Are You Sure? </h4>
+<form method="post">
+    <input type="submit" asp-action="DeleteOrderDetail" class="btn btn-dark" value="Delete" />
+    <input type="submit" asp-action="OrderDetail" class="btn btn-dark" asp-route-id="@Model.OrderDetailId" formmethod="get" value="Cancel" />
+</form>

@@ -1,0 +1,40 @@
+﻿@model Customer
+
+<form method="post">
+    <input type="hidden" asp-for="CustomerId" />
+    <input type="hidden" asp-for="UserId" />
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="FirstName"> First Name: </label></th>
+            <td> <input asp-for="FirstName" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="LastName"> Last Name: </label> </th>
+            <td> <input asp-for="LastName" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="PhoneNumber"> Phone Number: </label></th>
+            <td> <input asp-for="PhoneNumber" placeholder="123-456-7890" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Address"> Address: </label></th>
+            <td> <input asp-for="Address" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="City"> City: </label> </th>
+            <td> <input asp-for="City" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="State"> State: </label></th>
+            <td> <input asp-for="State" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="ZipCode"> ZipCode: </label></th>
+            <td> <input asp-for="ZipCode" /> </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-dark" value="Update Customer" /> <input type="submit" class="btn btn-dark" asp-controller="Customer" asp-action="CustomerDetail" asp-route-id="@Model.CustomerId" value="Cancel" /> </td>
+        </tr>
+    </table>
+</form>

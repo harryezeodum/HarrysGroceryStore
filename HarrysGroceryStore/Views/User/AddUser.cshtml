@@ -1,0 +1,19 @@
+﻿@model User
+
+<form asp-controller="User" asp-action="AddUser" method="post">
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Email"> Email: </label></th>
+            <td> <input asp-for="Email" placeholder="Enter your email" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="PassWord"> Choose a password: </label> </th>
+            <td> <input asp-for="PassWord" type="password" placeholder="*************"/> </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-dark" value="Add User" /> <input type="submit" class="btn btn-dark" asp-action="Index" value="Back" /> </td>
+        </tr>
+    </table>
+</form>
+

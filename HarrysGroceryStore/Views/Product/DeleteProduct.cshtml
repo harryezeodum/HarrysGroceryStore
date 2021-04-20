@@ -1,0 +1,18 @@
+﻿@model Product
+
+<label class="font-weight-bold"> Product Id: </label> @Model.ProductId
+<br />
+<label class="font-weight-bold"> Product Name: </label> @Model.ProductName
+<br />
+<label class="font-weight-bold"> Price: </label> @Model.Price.ToString("C")
+<br />
+<label class="font-weight-bold"> Category: </label> @Model.Category
+<br />
+<label class="font-weight-bold"> Supplier Id: </label> @Model.SupplierId
+<br />
+<hr />
+<h4> Are You Sure? </h4>
+<form method="post">
+    <input type="submit" asp-action="DeleteProduct" class="btn btn-dark" value="Delete" />
+    <input type="submit" asp-action="ProductDetail" class="btn btn-dark" asp-route-id="@Model.ProductId" formmethod="get" value="Cancel" />
+</form>

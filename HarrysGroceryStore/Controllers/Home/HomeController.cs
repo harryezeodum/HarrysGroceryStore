@@ -24,6 +24,19 @@ namespace HarrysGroceryStore.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SignUp(User user)
+        {
+            _repository.AddUser(user);
+            return RedirectToAction("Main");
+        }
+
         public IActionResult LogIn()
         {
             return View();
@@ -59,6 +72,38 @@ namespace HarrysGroceryStore.Controllers
             //    }
             //    ModelState.AddModelError("", "Password don't match");
             //}
+            return View();
+        }
+
+        public IActionResult Main()
+        {
+            return View();
+        }
+
+        public ViewResult ProfileDetails()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult EditProfile(string firstName)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditProfile(User edit)
+        {
+            //if (ModelState.IsValid)
+            //{
+            //    if (edit.PassWord == edit.ConfirmPassword)
+            //    {
+            //        return RedirectToAction("ProfileDetails", edit); ;
+            //    }
+            //    ModelState.AddModelError("", "Password don't match");
+            //}
+            //turn View(edit);
+
             return View();
         }
 

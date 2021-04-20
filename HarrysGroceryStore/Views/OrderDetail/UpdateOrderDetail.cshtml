@@ -1,0 +1,21 @@
+﻿@model OrderDetail
+
+<form method="post">
+    <input type="hidden" asp-for="OrderId" />
+    <input type="hidden" asp-for="ProductId" />
+    <input type="hidden" asp-for="OrderDetailId" />
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="UnitPrice"> Unit Price: </label></th>
+            <td> <input asp-for="UnitPrice" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Quantity"> Quantity: </label></th>
+            <td> <input asp-for="Quantity" /> </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-dark" value="Update OrderDetail" /> <input type="submit" class="btn btn-dark" asp-controller="OrderDetail" asp-action="OrderDetail" asp-route-id="@Model.OrderDetailId" value="Cancel" /> </td>
+        </tr>
+    </table>
+</form>

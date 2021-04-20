@@ -1,0 +1,31 @@
+﻿@model IQueryable<Employee>
+
+
+<hr />
+@foreach (Employee e in Model)
+{
+    <label class="font-weight-bold"> Employee Id: </label> @e.EmployeeId
+    <br />
+    <label class="font-weight-bold"> User Id: </label> @e.UserId
+    <br />
+    <label class="font-weight-bold"> First Name: </label> @e.FirstName
+    <br />
+    <label class="font-weight-bold"> Last Name: </label> @e.LastName
+    <br />
+    <label class="font-weight-bold"> Hire Date: </label> @e.HireDate
+    <br />
+    <label class="font-weight-bold"> Phone Number: </label> @e.PhoneNumber
+    <br />
+    <label class="font-weight-bold"> Address: </label> @e.Address
+    <br />
+    <label class="font-weight-bold"> City: </label> @e.City
+    <br />
+    <label class="font-weight-bold"> State: </label> @e.State
+    <br />
+    <label class="font-weight-bold"> ZipCode: </label> @e.ZipCode
+    <br />
+    <hr />
+
+}
+
+

@@ -1,0 +1,20 @@
+﻿@model IQueryable<Supplier>
+
+
+<hr />
+@foreach (Supplier s in Model)
+{
+    <label class="font-weight-bold"> Supplier Id: </label> @s.SupplierId
+    <br />
+    <label class="font-weight-bold"> Company Name: </label> @s.CompanyName
+    <br />
+    <label class="font-weight-bold"> Contact Name: </label> @s.ContactName
+    <br />
+    <label class="font-weight-bold"> Contact Email: </label> @s.ContactEmail
+    <br />
+    <label class="font-weight-bold"> Contact Number: </label> @s.ContactPhone
+    <br />
+    <hr />
+}
+
+

@@ -1,0 +1,19 @@
+﻿@model OrderDetail
+
+<form asp-controller="OrderDetail" asp-action="AddOrderDetail" method="post">
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="UnitPrice"> Unit Price: </label></th>
+            <td> <input asp-for="UnitPrice" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Quantity"> Quantity: </label></th>
+            <td> <input asp-for="Quantity" /> </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-dark" value="Add OrderDetail" /> <input type="submit" class="btn btn-dark" asp-action="Index" value="Back" /> </td>
+        </tr>
+    </table>
+</form>
+
