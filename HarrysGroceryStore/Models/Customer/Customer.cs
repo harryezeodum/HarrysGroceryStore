@@ -14,9 +14,6 @@ namespace HarrysGroceryStore.Models
         [Key]
         public int CustomerId { get; set; }
 
-        [ForeignKey("UserId")]
-        public int UserId { get; set; }
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -30,5 +27,9 @@ namespace HarrysGroceryStore.Models
         public string State { get; set; }
 
         public string ZipCode { get; set; }
+
+        public User User { get; set; }
+
+        public List<Order> Orders { get; set; }
     }
 }

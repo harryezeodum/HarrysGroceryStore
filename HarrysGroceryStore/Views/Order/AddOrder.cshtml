@@ -1,0 +1,63 @@
+﻿@model Order
+@inject IEmployeeRepository _employeRepository
+
+<form asp-controller="Order" asp-action="AddOrder" method="post">
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="SalesAmount"> Sales Amount: </label></th>
+            <td> <input asp-for="SalesAmount" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="OrderDate"> Order Date: </label></th>
+            <td> <input asp-for="OrderDate" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="ShippedDate"> Shipped Date: </label> </th>
+            <td> <input asp-for="ShippedDate" /> </td>
+        </tr>
+        @*<tr>
+                <th><label class="font-weight-bold" asp-for="Customer.FirstName">  First Name: </label></th>
+                <td> <input asp-for="Customer.FirstName" /> </td>
+            </tr>
+            <tr>
+                <th><label class="font-weight-bold" asp-for="Customer.LastName">  Last Name: </label></th>
+                <td> <input asp-for="Customer.LastName" /> </td>
+            </tr>*@
+        <tr>
+            <th><label class="font-weight-bold" asp-for="ShipAddress">  Address: </label></th>
+            <td> <input asp-for="ShipAddress" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="ShipCity"> City: </label> </th>
+            <td> <input asp-for="ShipCity" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="State"> State: </label></th>
+            <td> <input asp-for="State" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Zipcode"> ZipCode: </label></th>
+            <td> <input asp-for="Zipcode" /> </td>
+        </tr>
+        <tr>
+            <th>
+                <label class="font-weight-bold" asp-for="EmployeeId"> Employee: </label>
+            </th>
+            <td>
+                <select asp-for="EmployeeId">
+                    @foreach (Employee e in _employeRepository.GetAllEmployees())
+                    {
+                        <option value="@e.EmployeeId">
+                            @e.FirstName @e.LastName
+                        </option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-primary" value="Add Order" /> <input type="submit" class="btn btn-primary" asp-action="Index" value="Back" /> </td>
+        </tr>
+    </table>
+</form>
+

@@ -26,8 +26,15 @@ using HarrysGroceryStore.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Admin\source\repos\HarrysGroceryStore\HarrysGroceryStore\Views\_ViewImports.cshtml"
+using HarrysGroceryStore.Infrastructure;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"93bafa34d4f5111f4d38718083f3c2aff98e6a6a", @"/Views/OrderDetail/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"343e1e526577f3bda8743eb1a27bb716b634458b", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a05761d455cbf7c0c0f121e153c8af2860c215b6", @"/Views/_ViewImports.cshtml")]
     public class Views_OrderDetail_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ListViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "OrderDetail", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -82,7 +89,7 @@ using HarrysGroceryStore.Models;
 #line hidden
 #nullable disable
             WriteLiteral("    <div class=\"card card-outline-primary m-1 p-1\">\r\n        <div class=\"fg-faded p-1\">\r\n            <h4>\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93bafa34d4f5111f4d38718083f3c2aff98e6a6a7013", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93bafa34d4f5111f4d38718083f3c2aff98e6a6a7227", async() => {
                 WriteLiteral(" ");
 #nullable restore
 #line 13 "C:\Users\Admin\source\repos\HarrysGroceryStore\HarrysGroceryStore\Views\OrderDetail\Index.cshtml"
@@ -130,7 +137,7 @@ using HarrysGroceryStore.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93bafa34d4f5111f4d38718083f3c2aff98e6a6a9834", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93bafa34d4f5111f4d38718083f3c2aff98e6a6a10048", async() => {
                 WriteLiteral(" Add a new OrderDetail ");
             }
             );
@@ -149,7 +156,7 @@ using HarrysGroceryStore.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n<hr />\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93bafa34d4f5111f4d38718083f3c2aff98e6a6a11309", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "93bafa34d4f5111f4d38718083f3c2aff98e6a6a11524", async() => {
             }
             );
             __HarrysGroceryStore_Infrastructure_PageLinkTagHelper = CreateTagHelper<global::HarrysGroceryStore.Infrastructure.PageLinkTagHelper>();

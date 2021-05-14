@@ -1,0 +1,30 @@
+﻿@model Admin
+
+<label class="font-weight-bold"> Email: </label> @Model.Email
+<br />
+<label class="font-weight-bold"> Password: </label> @Model.PassWord
+<br />
+<label class="font-weight-bold"> First Name: </label> @Model.Employee.FirstName
+<br />
+<label class="font-weight-bold"> Last Name: </label> @Model.Employee.LastName
+<br />
+<label class="font-weight-bold"> Phone Number: </label> @Model.Employee.PhoneNumber
+<br />
+<label class="font-weight-bold"> Hire Date: </label> @Model.Employee.HireDate
+<br />
+<label class="font-weight-bold"> Address: </label> @Model.Employee.Address
+<br />
+<label class="font-weight-bold"> City: </label> @Model.Employee.City
+<br />
+<label class="font-weight-bold"> State: </label> @Model.Employee.State
+<br />
+<label class="font-weight-bold"> Zipcode: </label> @Model.Employee.ZipCode
+<br />
+<hr />
+
+<h4> Are You Sure? </h4>
+<form method="post">
+    <input type="submit" asp-action="DeleteAdmin" class="btn btn-danger" value="Delete" />
+    <input type="submit" asp-action="AdminDetail" class="btn btn-warning" asp-route-id="@Model.AdminId" formmethod="get" value="Cancel" />
+</form>
+

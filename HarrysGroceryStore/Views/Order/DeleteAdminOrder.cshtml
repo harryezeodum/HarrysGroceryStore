@@ -1,0 +1,55 @@
+﻿@model Order
+
+<table>
+    <tr>
+        <th class="text-right"> Sales Amount: </th>
+        <td class="p-2"> @Model.SalesAmount.ToString("C") </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Order Date: </th>
+        <td class="p-2"> @Model.OrderDate </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Shipped Date: </th>
+        <td class="p-2"> @Model.ShippedDate </td>
+    </tr>
+    <tr>
+        <th class="text-right"> First Name: </th>
+        <td class="p-2"> @Model.Customer.FirstName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Last Name: </th>
+        <td class="p-2"> @Model.Customer.LastName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Address: </th>
+        <td> @Model.ShipAddress </td>
+    </tr>
+    <tr>
+        <th class="text-right"> City: </th>
+        <td class="p-2"> @Model.ShipCity </td>
+    </tr>
+    <tr>
+        <th class="text-right"> State: </th>
+        <td class="p-2"> @Model.State </td>
+    </tr>
+    <tr>
+        <th class="text-right"> ZipCode: </th>
+        <td class="p-2"> @Model.Zipcode </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Employee Firstname: </th>
+        <td class="p-2"> @Model.Employee.FirstName @Model.Employee.LastName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Employee Lastname: </th>
+        <td class="p-2"> @Model.Employee.LastName </td>
+    </tr>
+</table>
+<hr />
+
+<h4> Are You Sure? </h4>
+<form method="post">
+    <input type="submit" asp-action="DeleteAdminOrder" class="btn btn-danger" value="Delete" />
+    <input type="submit" asp-action="AdminOrderDetail" class="btn btn-warning" asp-route-id="@Model.OrderId" formmethod="get" value="Cancel" />
+</form>

@@ -1,0 +1,24 @@
+﻿@model ListViewModel
+
+<div class="bg-dark p-2 text-white text-center">
+    <h3><span class="navbar-brand ml-2 badge"> List of @Model.Employees.Count() Employees </span></h3>
+</div>
+<hr />
+
+@foreach (var employee in Model.Employees)
+ {
+    <div class="card card-outline-primary m-1 p-1">
+        <div class="fg-faded p-1">
+            <h4>
+                <a asp-action="AdminEmployeeDetail" asp-route-id=" @employee.EmployeeId"> @employee.FirstName @employee.LastName </a>
+            </h4>
+        </div>
+    </div>
+ }
+
+<hr />
+
+<a asp-controller="Home" asp-action="AdminMain" class="ml-2 btn btn-warning">Back</a>
+<hr />
+<div page-model="@Model.PagingInformation" page-action="AdminIndex" page-class-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+

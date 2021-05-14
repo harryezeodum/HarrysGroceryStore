@@ -4,8 +4,24 @@
 <br />
 <label class="font-weight-bold"> Password: </label> @Model.PassWord
 <br />
+<label class="font-weight-bold"> First Name: </label> @Model.Customer.FirstName
+<br />
+<label class="font-weight-bold"> Last Name: </label> @Model.Customer.LastName
+<br />
+<label class="font-weight-bold"> Phone Number: </label> @Model.Customer.PhoneNumber
+<br />
+<label class="font-weight-bold"> Address: </label> @Model.Customer.Address
+<br />
+<label class="font-weight-bold"> City: </label> @Model.Customer.City
+<br />
+<label class="font-weight-bold"> State: </label> @Model.Customer.State
+<br />
+<label class="font-weight-bold"> Zipcode: </label> @Model.Customer.ZipCode
+<br />
+<hr />
+
 <h4> Are You Sure? </h4>
 <form method="post">
-    <input type="submit" asp-action="DeleteUser" class="btn btn-dark" value="Delete" />
-    <input type="submit" asp-action="UserDetail" class="btn btn-dark" asp-route-id="@Model.UserId" formmethod="get" value="Cancel" />
+    <input type="submit" asp-action="DeleteUser" class="btn btn-danger" value="Delete" />
+    <input type="submit" asp-action="UserDetail" class="btn btn-warning" asp-route-id="@Model.UserId" formmethod="get" value="Cancel" />
 </form>

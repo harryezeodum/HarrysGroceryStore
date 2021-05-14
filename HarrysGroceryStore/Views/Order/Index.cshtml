@@ -1,0 +1,50 @@
+﻿@model ListViewModel
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Harrys Grocery Store </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body class="container">
+    <header>
+        <div>
+            <h3 class="text-primary">Harrys Grocery Store</h3>
+            <pre class="text-primary font-weight-bold ">
+        23564 Holly Spring Way          Store Hours
+        Houston, TX 77032               Monday to Sunday
+        281-482-1234                    8AM to 7PM                                        <strong><a asp-controller="Product" asp-action="Index">Products</a></strong>   <strong><a asp-controller="Order" asp-action="OrderDetail">Track Orders</a></strong>   <strong><a asp-controller="User" asp-action="Index">Account</a> </strong> <strong><a asp-action="">My Items</a></strong>  <strong><a asp-controller="User" asp-action="Logout">Log out</a></strong>
+             </pre>
+        </div> <hr />
+    </header>
+
+    <div>
+        <h3><span> List of @Model.Orders.Count() Orders </span></h3>
+    </div>
+    <hr />
+
+    @foreach (var order in Model.Orders)
+    {
+        <div class="card card-outline-primary m-1 p-1">
+            <div class="fg-faded p-1">
+                <h4>
+                    <a asp-action="OrderDetail" asp-route-id=" @order.OrderId"> @order.OrderId </a>
+                </h4>
+            </div>
+        </div>
+    }
+
+    <hr />
+
+    <a asp-controller="Home" asp-action="Main" class="ml-2 btn btn-warning">Back</a>
+</body>
+</html>
+
+

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace HarrysGroceryStore.Models
             _context = context;
         }
 
-        public Employee AddEmployee(Employee employee)
+        public Employee Create(Employee employee)
         {
             _context.Employees.Add(employee);
             _context.SaveChanges();
@@ -26,9 +27,20 @@ namespace HarrysGroceryStore.Models
             return _context.Employees;
         }
 
+        public IQueryable<Employee> GetAllAdminEmployees()
+        {
+            return _context.Employees;
+        }
+
         public Employee GetEmployeeById(int employeeId)
         {
-            Employee employee = _context.Employees.Find(employeeId);
+            Employee employee = _context.Employees.Include(e => e.Admin).Where(e => e.EmployeeId == employeeId).FirstOrDefault();
+            return employee;
+        }
+
+        public Employee GetAdminEmployeeById(int employeeId)
+        {
+            Employee employee = _context.Employees.Include(e => e.Admin).Where(e => e.EmployeeId == employeeId).FirstOrDefault();
             return employee;
         }
 
@@ -38,7 +50,7 @@ namespace HarrysGroceryStore.Models
             return employees;
         }
 
-        public Employee UpdateEmployee(Employee employee)
+        public Employee Update(Employee employee)
         {
             Employee employeeToUpdate = _context.Employees.Find(employee.EmployeeId);
             if (employeeToUpdate != null)
@@ -56,7 +68,7 @@ namespace HarrysGroceryStore.Models
             return employeeToUpdate;
         }
 
-        public bool DeleteEmployee(int id)
+        public bool Delete(int id)
         {
             Employee employeeToDelete = GetEmployeeById(id);
             if (employeeToDelete == null)

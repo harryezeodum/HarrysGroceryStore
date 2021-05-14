@@ -6,6 +6,14 @@
     <input type="hidden" asp-for="OrderDetailId" />
     <table>
         <tr>
+            <th><label class="font-weight-bold" asp-for="Product.ProductName"> Product Name: </label></th>
+            <td> <input asp-for="Product.ProductName" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Product.Category"> Category: </label></th>
+            <td> <input asp-for="Product.Category" /> </td>
+        </tr>
+        <tr>
             <th><label class="font-weight-bold" asp-for="UnitPrice"> Unit Price: </label></th>
             <td> <input asp-for="UnitPrice" /> </td>
         </tr>
@@ -15,7 +23,7 @@
         </tr>
         <tr>
             <th></th>
-            <td> <input type="submit" class="btn btn-dark" value="Update OrderDetail" /> <input type="submit" class="btn btn-dark" asp-controller="OrderDetail" asp-action="OrderDetail" asp-route-id="@Model.OrderDetailId" value="Cancel" /> </td>
+            <td> <input type="submit" class="btn btn-primary" value="Update OrderDetail" /> <input type="submit" class="btn btn-primary" asp-controller="OrderDetail" asp-action="OrderDetail" asp-route-id="@Model.OrderDetailId" value="Cancel" /> </td>
         </tr>
     </table>
 </form>

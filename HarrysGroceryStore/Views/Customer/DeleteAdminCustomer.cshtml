@@ -1,0 +1,28 @@
+﻿@model Customer
+
+<label class="font-weight-bold"> Email: </label> @Model.User.Email
+<br />
+<label class="font-weight-bold"> Password: </label> @Model.User.PassWord
+<br />
+<label class="font-weight-bold"> Customer Id: </label> @Model.CustomerId
+<br />
+<label class="font-weight-bold"> First Name: </label> @Model.FirstName
+<br />
+<label class="font-weight-bold"> Last Name: </label> @Model.LastName
+<br />
+<label class="font-weight-bold"> Phone Number: </label> @Model.PhoneNumber
+<br />
+<label class="font-weight-bold"> Address: </label> @Model.Address
+<br />
+<label class="font-weight-bold"> City: </label> @Model.City
+<br />
+<label class="font-weight-bold"> State: </label> @Model.State
+<br />
+<label class="font-weight-bold"> ZipCode: </label> @Model.ZipCode
+<br />
+<hr />
+<h4> Are You Sure? </h4>
+<form method="post">
+    <input type="submit" asp-action="DeleteAdminCustomer" class="btn btn-danger" value="Delete" />
+    <input type="submit" asp-action="AdminCustomerDetail" class="btn btn-warning" asp-route-id="@Model.CustomerId" formmethod="get" value="Cancel" />
+</form>

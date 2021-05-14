@@ -1,8 +1,9 @@
 ﻿@model Customer
 
-<label class="font-weight-bold"> Customer Id: </label> @Model.CustomerId
+
+<label class="font-weight-bold"> Email: </label> @Model.User.Email
 <br />
-<label class="font-weight-bold"> User Id: </label> @Model.UserId
+<label class="font-weight-bold"> Password: </label> @Model.User.PassWord
 <br />
 <label class="font-weight-bold"> First Name: </label> @Model.FirstName
 <br />
@@ -21,6 +22,6 @@
 <hr />
 
 
-<a asp-controller="Customer" asp-action="UpdateCustomer" asp-route-id="@Model.CustomerId" class="btn btn-dark"> Edit Customer </a>
-<a asp-controller="Customer" asp-action="DeleteCustomer" class="btn btn-dark" asp-route-id="@Model.CustomerId"> Delete Customer </a>
-<a asp-controller="Customer" asp-action="Index" asp-route-id="@Model.CustomerId" class="btn btn-dark"> Back </a>
+<a asp-controller="Customer" asp-action="UpdateCustomer" asp-route-id="@Model.CustomerId" class="btn btn-primary"> Edit Customer </a>
+<a asp-controller="Customer" asp-action="DeleteCustomer" class="btn btn-danger" asp-route-id="@Model.CustomerId"> Delete Customer </a>
+<a asp-controller="Customer" asp-action="Index" asp-route-id="@Model.CustomerId" class="btn btn-warning"> Back </a>

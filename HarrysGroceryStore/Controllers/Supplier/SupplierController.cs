@@ -30,17 +30,17 @@ namespace HarrysGroceryStore.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Index(int supplierPage = 1)
+        public IActionResult Index(int page = 1)
         {
             IQueryable<Supplier> allSuppliers = _repository.GetAllSuppliers();
-            IQueryable<Supplier> someSuppliers = allSuppliers.OrderBy(p => p.SupplierId).Skip((supplierPage - 1) * _pageSize).Take(_pageSize);
+            IQueryable<Supplier> someSuppliers = allSuppliers.OrderBy(p => p.SupplierId).Skip((page - 1) * _pageSize).Take(_pageSize);
 
             ListViewModel lvm = new ListViewModel();
 
             PagingInfo pi = new PagingInfo();
             pi.TotalItems = allSuppliers.Count();
             pi.ItemsPerPage = _pageSize;
-            pi.CurrentPage = supplierPage;
+            pi.CurrentPage = page;
 
             lvm.PagingInformation = pi;
 

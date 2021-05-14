@@ -1,0 +1,28 @@
+﻿@model ListViewModel
+
+
+<div>
+    <h3><span> List of @Model.Orders.Count() Orders </span></h3>
+</div>
+<hr />
+
+@foreach (var order in Model.Orders)
+{
+    <div class="card card-outline-primary m-1 p-1">
+        <div class="fg-faded p-1">
+            <h4>
+                <a asp-action="AdminOrderDetail" asp-route-id=" @order.OrderId"> @order.OrderId </a>
+            </h4>
+        </div>
+    </div>
+}
+
+<hr />
+
+<a asp-controller="Home" asp-action="AdminMain" class="ml-2 btn btn-warning">Back</a>
+<hr />
+
+<div page-model="@Model.PagingInformation" page-action="OrderIndex" page-class-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+
+
+

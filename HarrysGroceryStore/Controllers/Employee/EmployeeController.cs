@@ -11,36 +11,63 @@ namespace HarrysGroceryStore.Controllers
     {
         private int _pageSize = 10;
         private IEmployeeRepository _repository;
+        private IAdminRepository _adminRepository;
 
-        public EmployeeController(IEmployeeRepository repository)
+        public EmployeeController(IEmployeeRepository repository, IAdminRepository adminRepository)
         {
             _repository = repository;
+            _adminRepository = adminRepository;
         }
 
         [HttpGet]
         public IActionResult AddEmployee()
         {
-            return View();
+            Employee e = new Employee();
+            e.Admin = new Admin();
+            return View(e);
         }
 
         [HttpPost]
         public IActionResult AddEmployee(Employee employee)
         {
-            _repository.AddEmployee(employee);
-            return RedirectToAction("Index");
+            _adminRepository.Create(employee.Admin);
+            employee.Admin.AdminId = employee.Admin.AdminId;
+            employee.Admin = null;
+            _repository.Create(employee);
+
+            return RedirectToAction("EmployeeDetail", new { id = employee.EmployeeId });
         }
 
-        public IActionResult Index(int employeePage = 1)
+        public IActionResult Index(int page = 1)
         {
             IQueryable<Employee> allEmployees = _repository.GetAllEmployees();
-            IQueryable<Employee> someEmployees = allEmployees.OrderBy(p => p.EmployeeId).Skip((employeePage - 1) * _pageSize).Take(_pageSize);
+            IQueryable<Employee> someEmployees = allEmployees.OrderBy(p => p.EmployeeId).Skip((page - 1) * _pageSize).Take(_pageSize);
 
             ListViewModel lvm = new ListViewModel();
 
             PagingInfo pi = new PagingInfo();
             pi.TotalItems = allEmployees.Count();
             pi.ItemsPerPage = _pageSize;
-            pi.CurrentPage = employeePage;
+            pi.CurrentPage = page;
+
+            lvm.PagingInformation = pi;
+
+            lvm.Employees = someEmployees;
+
+            return View(lvm);
+        }
+
+        public IActionResult EmployeeIndex(int page = 1)
+        {
+            IQueryable<Employee> allEmployees = _repository.GetAllAdminEmployees();
+            IQueryable<Employee> someEmployees = allEmployees.OrderBy(p => p.EmployeeId).Skip((page - 1) * _pageSize).Take(_pageSize);
+
+            ListViewModel lvm = new ListViewModel();
+
+            PagingInfo pi = new PagingInfo();
+            pi.TotalItems = allEmployees.Count();
+            pi.ItemsPerPage = _pageSize;
+            pi.CurrentPage = page;
 
             lvm.PagingInformation = pi;
 
@@ -57,6 +84,16 @@ namespace HarrysGroceryStore.Controllers
                 return View(employee);
             }
             return RedirectToAction("Index");
+        }
+
+        public IActionResult AdminEmployeeDetail(int id)
+        {
+            Employee employee = _repository.GetAdminEmployeeById(id);
+            if (employee != null)
+            {
+                return View(employee);
+            }
+            return RedirectToAction("EmployeeIndex");
         }
 
         public IActionResult SearchEmployee(string keyword)
@@ -79,8 +116,26 @@ namespace HarrysGroceryStore.Controllers
         [HttpPost]
         public IActionResult UpdateEmployee(Employee employee)
         {
-            Employee updatedEmployee = _repository.UpdateEmployee(employee);
+            Employee updatedEmployee = _repository.Update(employee);
             return RedirectToAction("EmployeeDetail", new { id = employee.EmployeeId });
+        }
+
+        [HttpGet]
+        public IActionResult UpdateAdminEmployee(int id)
+        {
+            Employee employee = _repository.GetAdminEmployeeById(id);
+            if (employee != null)
+            {
+                return View(employee);
+            }
+            return RedirectToAction("EmployeeIndex");
+        }
+
+        [HttpPost]
+        public IActionResult UpdateAdminEmployee(Employee employee)
+        {
+            Employee updatedEmployee = _repository.Update(employee);
+            return RedirectToAction("AdminEmployeeDetail", "Employee", new { id = employee.EmployeeId });
         }
 
         [HttpGet]
@@ -97,8 +152,26 @@ namespace HarrysGroceryStore.Controllers
         [HttpPost]
         public IActionResult DeleteEmployee(Employee employee, int id)
         {
-            _repository.DeleteEmployee(id);
+            _repository.Delete(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult DeleteAdminEmployee(int id)
+        {
+            Employee employee = _repository.GetAdminEmployeeById(id);
+            if (employee != null)
+            {
+                return View(employee);
+            }
+            return RedirectToAction("AdminIndex");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteAdminEmployee(Employee employee, int id)
+        {
+            _repository.Delete(id);
+            return RedirectToAction("AdminIndex");
         }
     }
 }

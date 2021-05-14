@@ -4,16 +4,24 @@
 <hr />
 @foreach (Product p in Model)
 {
-    <label class="font-weight-bold"> Product Id: </label> @p.ProductId
-    <br />
-    <label class="font-weight-bold"> Product Name: </label> @p.ProductName
-    <br />
-    <label class="font-weight-bold"> Price: </label> @p.Price.ToString("C")
-    <br />
-    <label class="font-weight-bold"> Category: </label> @p.Category
-    <br />
-    <label class="font-weight-bold"> Supplier Id: </label> @p.SupplierId
-    <br />
+<table>
+    <tr>
+        <th class="text-right"> Product Name: </th>
+        <td class="p-2"> @p.ProductName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Category: </th>
+        <td class="p-2"> @p.Category </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Unit Price: </th>
+        <td class="p-2"> @p.Price.ToString("C") </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Supplier: </th>
+        <td class="p-2"> @p.Supplier.CompanyName </td>
+    </tr>
+</table>
     <hr />
 }
 

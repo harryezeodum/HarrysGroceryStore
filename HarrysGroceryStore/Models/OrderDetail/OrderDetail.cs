@@ -14,15 +14,17 @@ namespace HarrysGroceryStore.Models
         [Key]
         public int OrderDetailId { get; set; }
 
-        [ForeignKey("OrderId")]
+        [ForeignKey("Order")]
         public int OrderId { get; set; }
+        public Order Order { get; set; }
 
-        [ForeignKey("ProductId")]
+        [ForeignKey("Product")]
         public int ProductId { get; set; }
+        public Product Product { get; set; }
 
         [Column(TypeName = "decimal(8, 2)")]
         public decimal UnitPrice { get; set; }
 
-        public short Quantity { get; set; }
+        public int Quantity { get; set; }
     }
 }

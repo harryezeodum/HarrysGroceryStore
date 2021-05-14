@@ -1,0 +1,27 @@
+﻿@model Customer
+
+
+<label class="font-weight-bold"> Email: </label> @Model.User.Email
+<br />
+<label class="font-weight-bold"> Password: </label> @Model.User.PassWord
+<br />
+<label class="font-weight-bold"> First Name: </label> @Model.FirstName
+<br />
+<label class="font-weight-bold"> Last Name: </label> @Model.LastName
+<br />
+<label class="font-weight-bold"> Phone Number: </label> @Model.PhoneNumber
+<br />
+<label class="font-weight-bold"> Address: </label> @Model.Address
+<br />
+<label class="font-weight-bold"> City: </label> @Model.City
+<br />
+<label class="font-weight-bold"> State: </label> @Model.State
+<br />
+<label class="font-weight-bold"> ZipCode: </label> @Model.ZipCode
+<br />
+<hr />
+
+
+<a asp-controller="Customer" asp-action="UpdateAdminCustomer" asp-route-id="@Model.CustomerId" class="btn btn-primary"> Edit Customer </a>
+<a asp-controller="Customer" asp-action="DeleteAdminCustomer" class="btn btn-danger" asp-route-id="@Model.CustomerId"> Delete Customer </a>
+<a asp-controller="Customer" asp-action="EmployeeIndex" asp-route-id="@Model.CustomerId" class="btn btn-warning"> Back </a>

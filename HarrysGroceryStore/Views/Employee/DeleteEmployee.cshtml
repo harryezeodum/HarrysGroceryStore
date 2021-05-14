@@ -2,8 +2,6 @@
 
 <label class="font-weight-bold"> Employee Id: </label> @Model.EmployeeId
 <br />
-<label class="font-weight-bold"> User Id: </label> @Model.UserId
-<br />
 <label class="font-weight-bold"> First Name: </label> @Model.FirstName
 <br />
 <label class="font-weight-bold"> Last Name: </label> @Model.LastName
@@ -24,6 +22,6 @@
 
 <h4> Are You Sure? </h4>
 <form method="post">
-    <input type="submit" asp-action="DeleteEmployee" class="btn btn-dark" value="Delete" />
-    <input type="submit" asp-action="EmployeeDetail" class="btn btn-dark" asp-route-id="@Model.EmployeeId" formmethod="get" value="Cancel" />
+    <input type="submit" asp-action="DeleteEmployee" class="btn btn-danger" value="Delete" />
+    <input type="submit" asp-action="EmployeeDetail" class="btn btn-warning" asp-route-id="@Model.EmployeeId" formmethod="get" value="Cancel" />
 </form>

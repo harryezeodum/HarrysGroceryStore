@@ -1,18 +1,49 @@
 ﻿@model ListViewModel
 
-<div class="bg-dark p-2 text-white text-center">
-    <h3><span class="navbar-brand ml-2 badge"> List of @Model.Users.Count() Users </span></h3>
-</div>
-<hr />
-
-@foreach (var user in Model.Users)
-{
-    <h5> <a asp-controller="User" asp-action="UserDetail" asp-route-id="@user.UserId">@user.Email </a> </h5>
-    <hr />
+@{
+    Layout = null;
 }
+<!DOCTYPE html>
 
-<a asp-controller="User" asp-action="AddUser" class="btn btn-dark"> Add a new user </a>
-<hr />
 
-<div page-model="@Model.PagingInformation" page-action="Index" page-class-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Harrys Grocery Store </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+</head>
+<body class="container">
+    <header>
+        <div>
+            <h3 class="text-primary">Harrys Grocery Store</h3>
+            <pre class="text-primary font-weight-bold ">
+        23564 Holly Spring Way          Store Hours
+        Houston, TX 77032               Monday to Sunday
+        281-482-1234                    8AM to 7PM                                        <strong><a asp-controller="Product" asp-action="Index">Products</a></strong>   <strong><a asp-controller="Order" asp-action="OrderDetail">Track Orders</a></strong>   <strong><a asp-controller="User" asp-action="Index">Account</a> </strong> <strong><a asp-action="">My Items</a></strong>  <strong><a asp-controller="User" asp-action="Logout">Log out</a></strong>
+             </pre>
+        </div> <hr />
+    </header>
+    <div>
+        <h2><span> User Profile </span></h2>
+    </div>
+    <hr />
+
+
+    @foreach (var user in Model.Users)
+    {
+
+        <h5> <a asp-controller="User" asp-action="UserDetail" asp-route-id="@user.UserId">@user.Customer.FirstName @user.Customer.LastName </a> (@user.Email) </h5>
+
+    }
+
+    <a asp-controller="Home" asp-action="Main" class="ml-2 btn btn-warning">Back</a>
+
+</body>
+</html>
+
+
+
+
+
 

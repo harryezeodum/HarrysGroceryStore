@@ -5,18 +5,23 @@
 </div>
 <hr />
 
+
 @foreach (var customer in Model.Customers)
- {
+{
     <div class="card card-outline-primary m-1 p-1">
-        <div class="fg-faded p-1">
+        <div class="fg-faded p-1 m-1">
+
             <h4>
-                <a asp-action="CustomerDetail" asp-route-id=" @customer.CustomerId"> @customer.FirstName @customer.LastName </a>
+                <a asp-action="CustomerDetail" asp-route-id="@customer.CustomerId"> @customer.FirstName @customer.LastName </a>
             </h4>
+
         </div>
     </div>
- }
+    <hr />
+}
 
-<a asp-controller="Customer" asp-action="AddCustomer" class="btn btn-dark"> Add a new Customer </a>
+
+<a asp-controller="Customer" asp-action="AddCustomer" class="btn btn-primary"> Add a New Customer </a>
 <hr />
 
 <div page-model="@Model.PagingInformation" page-action="Index" page-class-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

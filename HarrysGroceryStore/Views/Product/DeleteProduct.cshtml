@@ -1,16 +1,21 @@
 ﻿@model Product
 
-<label class="font-weight-bold"> Product Id: </label> @Model.ProductId
-<br />
-<label class="font-weight-bold"> Product Name: </label> @Model.ProductName
-<br />
-<label class="font-weight-bold"> Price: </label> @Model.Price.ToString("C")
-<br />
-<label class="font-weight-bold"> Category: </label> @Model.Category
-<br />
-<label class="font-weight-bold"> Supplier Id: </label> @Model.SupplierId
-<br />
+<table>
+    <tr>
+        <th class="text-right"> Product Name: </th>
+        <td class="p-2"> @Model.ProductName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Category: </th>
+        <td class="p-2"> @Model.Category </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Unit Price: </th>
+        <td class="p-2"> @Model.Price.ToString("C") </td>
+    </tr>
+</table>
 <hr />
+
 <h4> Are You Sure? </h4>
 <form method="post">
     <input type="submit" asp-action="DeleteProduct" class="btn btn-dark" value="Delete" />

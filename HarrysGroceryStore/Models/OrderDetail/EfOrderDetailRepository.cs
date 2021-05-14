@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,24 +15,32 @@ namespace HarrysGroceryStore.Models
             _context = context;
         }
 
+        public OrderDetail AddOrderDetail(OrderDetail od)
+        {
+            _context.OrderDetails.Add(od);
+            _context.SaveChanges();
+            return od;
+        }
+
         public IQueryable<OrderDetail> GetAllOrderDetails()
         {
             return _context.OrderDetails;
         }
 
-        public OrderDetail GetOrderDetailById(int orderId)
+        public OrderDetail GetOrderDetailById(int orderDetailId)
         {
-            OrderDetail orderDetail = _context.OrderDetails.Find(orderId);
+            //OrderDetail orderDetail = _context.OrderDetails.Find(orderId);
+            OrderDetail orderDetail = _context.OrderDetails.Include(od => od.Order).ThenInclude(od => od.Customer).Include(od => od.Order).ThenInclude(od => od.Employee).Where(od => od.OrderDetailId == orderDetailId).FirstOrDefault();
             return orderDetail;
         }
 
-        public OrderDetail UpdateOrderDetail(OrderDetail orderDetail)
+        public OrderDetail UpdateOrderDetail(OrderDetail od)
         {
-            OrderDetail OrderDetailToUpdate = _context.OrderDetails.Find(orderDetail.OrderId);
+            OrderDetail OrderDetailToUpdate = _context.OrderDetails.Find(od.OrderId);
             if (OrderDetailToUpdate != null)
             {
-                OrderDetailToUpdate.UnitPrice = orderDetail.UnitPrice;
-                OrderDetailToUpdate.Quantity = orderDetail.Quantity;
+                OrderDetailToUpdate.UnitPrice = od.UnitPrice;
+                OrderDetailToUpdate.Quantity = od.Quantity;
                 _context.SaveChanges();
             }
             return OrderDetailToUpdate;

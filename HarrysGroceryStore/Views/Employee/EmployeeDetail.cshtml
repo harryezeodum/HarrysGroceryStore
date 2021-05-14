@@ -1,9 +1,6 @@
 ﻿@model Employee
 
-<label class="font-weight-bold"> Employee Id: </label> @Model.EmployeeId
-<br />
-<label class="font-weight-bold"> User Id: </label> @Model.UserId
-<br />
+
 <label class="font-weight-bold"> First Name: </label> @Model.FirstName
 <br />
 <label class="font-weight-bold"> Last Name: </label> @Model.LastName
@@ -23,6 +20,6 @@
 <hr />
 
 
-<a asp-controller="Employee" asp-action="UpdateEmployee" asp-route-id="@Model.EmployeeId" class="btn btn-dark"> Edit Employee </a>
-<a asp-controller="Employee" asp-action="DeleteEmployee" class="btn btn-dark" asp-route-id="@Model.EmployeeId"> Delete Employee </a>
-<a asp-controller="Employee" asp-action="Index" asp-route-id="@Model.EmployeeId" class="btn btn-dark"> Back </a>
+<a asp-controller="Employee" asp-action="UpdateEmployee" asp-route-id="@Model.EmployeeId" class="btn btn-primary"> Edit Employee </a>
+<a asp-controller="Employee" asp-action="DeleteEmployee" class="btn btn-danger" asp-route-id="@Model.EmployeeId"> Delete Employee </a>
+<a asp-controller="Employee" asp-action="Index" asp-route-id="@Model.EmployeeId" class="btn btn-warning"> Back </a>

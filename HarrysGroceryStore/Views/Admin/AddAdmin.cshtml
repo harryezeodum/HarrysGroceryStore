@@ -1,0 +1,54 @@
+﻿@model Admin
+
+<h2> Register a New Admin </h2>
+
+<form method="post">
+    <input type="hidden" asp-for="EmployeeId" />
+    <input type="hidden" asp-for="AdminId" />
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Email"> Email: </label></th>
+            <td> <input asp-for="Email" placeholder="Enter your email" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="PassWord"> Choose a password: </label> </th>
+            <td> <input asp-for="PassWord" type="password" placeholder="*************" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Employee.FirstName"> First Name: </label></th>
+            <td> <input asp-for="Employee.FirstName" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="Employee.LastName"> Last Name: </label> </th>
+            <td> <input asp-for="Employee.LastName" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Employee.PhoneNumber"> Phone Number: </label></th>
+            <td> <input asp-for="Employee.PhoneNumber" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Employee.HireDate"> Hire Date: </label></th>
+            <td> <input asp-for="Employee.PhoneNumber" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="Employee.Address"> Address: </label> </th>
+            <td> <input asp-for="Employee.Address" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Employee.City"> City: </label></th>
+            <td> <input asp-for="Employee.City" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="Employee.State"> State: </label> </th>
+            <td> <input asp-for="Employee.State" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="Employee.ZipCode"> Zipcode: </label> </th>
+            <td> <input asp-for="Employee.ZipCode" /> </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-primary" value="Add New Admin" /> <input type="submit" class="btn btn-warning" asp-controller="Home" asp-action="Welcomepage" value="Back" /> </td>
+        </tr>
+    </table>
+</form>

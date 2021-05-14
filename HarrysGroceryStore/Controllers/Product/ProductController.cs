@@ -36,21 +36,32 @@ namespace HarrysGroceryStore.Controllers
             return View(categories);
         }
 
-        public IActionResult Index(int productPage = 1)
+        public IActionResult Index(string category, int page = 1)
         {
             IQueryable<Product> allProducts = _repository.GetAllProducts();
-            IQueryable<Product> someProducts = allProducts.OrderBy(p => p.ProductId).Skip((productPage - 1) * _pageSize).Take(_pageSize);
-
+            IQueryable<Product> someProducts; 
+            
+            if (category == null)
+            {
+                someProducts = allProducts.OrderBy(p => p.ProductId).Skip((page - 1) * _pageSize).Take(_pageSize);
+            }
+            else
+            {
+                someProducts = allProducts.OrderBy(p => p.ProductId).Where(p => p.Category == category).Skip((page - 1) * _pageSize).Take(_pageSize);
+            }
+            
             ListViewModel lvm = new ListViewModel();
 
             PagingInfo pi = new PagingInfo();
             pi.TotalItems = allProducts.Count();
             pi.ItemsPerPage = _pageSize;
-            pi.CurrentPage = productPage;
+            pi.CurrentPage = page;
 
             lvm.PagingInformation = pi;
 
             lvm.Products = someProducts;
+
+            lvm.CurrentCategory = category;
 
             return View(lvm);
         }

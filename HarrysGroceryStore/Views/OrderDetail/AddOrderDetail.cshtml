@@ -1,7 +1,15 @@
 ﻿@model OrderDetail
 
+<h2> New Order Detail </h2>
+<hr />
 <form asp-controller="OrderDetail" asp-action="AddOrderDetail" method="post">
+    <input type="hidden" asp-for="OrderId" />
+    <input type="hidden" asp-for="OrderDetailId" />
     <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="ProductId"> Product ID: </label></th>
+            <td> <input asp-for="ProductId" /> </td>
+        </tr>
         <tr>
             <th><label class="font-weight-bold" asp-for="UnitPrice"> Unit Price: </label></th>
             <td> <input asp-for="UnitPrice" /> </td>
@@ -12,7 +20,7 @@
         </tr>
         <tr>
             <th></th>
-            <td> <input type="submit" class="btn btn-dark" value="Add OrderDetail" /> <input type="submit" class="btn btn-dark" asp-action="Index" value="Back" /> </td>
+            <td> <input type="submit" class="btn btn-primary" value="Add OrderDetail" /> <input type="submit" class="btn btn-primary" asp-action="Index" value="Back" /> </td>
         </tr>
     </table>
 </form>

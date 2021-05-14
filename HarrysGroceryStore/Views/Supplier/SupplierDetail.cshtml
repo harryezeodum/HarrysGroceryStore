@@ -1,18 +1,26 @@
 ﻿@model Supplier
 
-<label class="font-weight-bold"> Supplier Id: </label> @Model.SupplierId
-<br />
-<label class="font-weight-bold"> Company Name: </label> @Model.CompanyName
-<br />
-<label class="font-weight-bold"> Contact Name: </label> @Model.ContactName
-<br />
-<label class="font-weight-bold"> Contact Email: </label> @Model.ContactEmail
-<br />
-<label class="font-weight-bold"> Contact Number: </label> @Model.ContactPhone
-<br />
+<table>
+    <tr>
+        <th class="text-right"> Company Name: </th>
+        <td class="p-2"> @Model.CompanyName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Contact Name: </th>
+        <td class="p-2"> @Model.ContactName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Contact Email: </th>
+        <td class="p-2"> @Model.ContactEmail </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Contact Number : </th>
+        <td class="p-2"> @Model.ContactPhone </td>
+    </tr>
+</table>
 <hr />
 
 
-<a asp-controller="Supplier" asp-action="UpdateSupplier" asp-route-id="@Model.SupplierId" class="btn btn-dark"> Edit Supplier </a>
-<a asp-controller="Supplier" asp-action="DeleteSupplier" class="btn btn-dark" asp-route-id="@Model.SupplierId"> Delete Supplier </a>
-<a asp-controller="Supplier" asp-action="Index" asp-route-id="@Model.SupplierId" class="btn btn-dark"> Back </a>
+<a asp-controller="Supplier" asp-action="UpdateSupplier" asp-route-id="@Model.SupplierId" class="btn btn-primary"> Edit Supplier </a>
+<a asp-controller="Supplier" asp-action="DeleteSupplier" class="btn btn-danger" asp-route-id="@Model.SupplierId"> Delete Supplier </a>
+<a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@Model.SupplierId" class="btn btn-warning"> Back </a>

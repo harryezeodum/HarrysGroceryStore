@@ -1,8 +1,9 @@
 ﻿@model Employee
 
-<form method="post">
+<h3> Edit Employee </h3>
+
+<form asp-controller="Admin" asp-action="AdminDetail" method="post">
     <input type="hidden" asp-for="EmployeeId" />
-    <input type="hidden" asp-for="UserId" />
     <table>
         <tr>
             <th><label class="font-weight-bold" asp-for="FirstName"> First Name: </label></th>
@@ -13,12 +14,8 @@
             <td> <input asp-for="LastName" /> </td>
         </tr>
         <tr>
-            <th><label class="font-weight-bold" asp-for="HireDate"> Hire Date: </label></th>
-            <td> <input asp-for="HireDate" placeholder="MM-DD-YEAR" /> </td>
-        </tr>
-        <tr>
             <th><label class="font-weight-bold" asp-for="PhoneNumber"> Phone Number: </label></th>
-            <td> <input asp-for="PhoneNumber" placeholder="123-456-7890" /> </td>
+            <td> <input asp-for="PhoneNumber" /> </td>
         </tr>
         <tr>
             <th><label class="font-weight-bold" asp-for="Address"> Address: </label></th>
@@ -38,7 +35,7 @@
         </tr>
         <tr>
             <th></th>
-            <td> <input type="submit" class="btn btn-dark" value="Add Employee" /> <input type="submit" class="btn btn-dark" asp-controller="Employee" asp-action="EmployeeDetail" asp-route-id="@Model.EmployeeId" value="Cancel" /> </td>
+            <td> <input type="submit" class="btn btn-primary" value="Update Employee" /> <input type="submit" class="btn btn-warning" asp-controller="Admin" asp-action="AdminDetail" asp-route-id="@Model.EmployeeId" value="Cancel" /> </td>
         </tr>
     </table>
 </form>

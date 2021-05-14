@@ -7,6 +7,8 @@ namespace HarrysGroceryStore.Models
 {
     public class ListViewModel
     {
+        public IQueryable<Admin> Admins { get; set; }
+
         public IQueryable<User> Users { get; set; }
 
         public IQueryable<Product> Products { get; set; }
@@ -15,12 +17,14 @@ namespace HarrysGroceryStore.Models
 
         public IQueryable<Employee> Employees { get; set; }
 
-        public IQueryable<SalesOrder> SalesOrders { get; set; }
+        public IQueryable<Order> Orders { get; set; }
 
         public IQueryable<OrderDetail> OrderDetails { get; set; }
 
         public IQueryable<Supplier> Suppliers { get; set; }
 
         public PagingInfo PagingInformation { get; set; }
+
+        public string CurrentCategory { get; set; }
     }
 }

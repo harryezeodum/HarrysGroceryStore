@@ -1,0 +1,21 @@
+﻿@model Admin
+
+<h2> Edit Admin </h2>
+
+<form method="post">
+    <input type="hidden" asp-for="AdminId" />
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Email"> Email: </label></th>
+            <td> <input asp-for="Email" placeholder="Enter your email" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="PassWord"> Choose a password: </label> </th>
+            <td> <input asp-for="PassWord" type="password" placeholder="*************" /> </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-primary" value="Update Admin" /> <input type="submit" class="btn btn-warning" asp-action="AdminDetail" asp-route-id="@Model.AdminId" value="Back" /> </td>
+        </tr>
+    </table>
+</form>

@@ -18,6 +18,93 @@ namespace HarrysGroceryStore.Migrations
                 .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("HarrysGroceryStore.Models.Admin", b =>
+                {
+                    b.Property<int>("AdminId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PassWord")
+                        .IsRequired()
+                        .HasMaxLength(14)
+                        .HasColumnType("nvarchar(14)");
+
+                    b.HasKey("AdminId");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("Admins");
+
+                    b.HasData(
+                        new
+                        {
+                            AdminId = 1,
+                            Email = "johndoe@aol.com",
+                            EmployeeId = 1,
+                            PassWord = "baller21!"
+                        },
+                        new
+                        {
+                            AdminId = 2,
+                            Email = "michaelchan@aol.com",
+                            EmployeeId = 2,
+                            PassWord = "christian2005!"
+                        },
+                        new
+                        {
+                            AdminId = 3,
+                            Email = "clairejonnas@gmail.com",
+                            EmployeeId = 3,
+                            PassWord = "ngozi2021!"
+                        },
+                        new
+                        {
+                            AdminId = 4,
+                            Email = "smith.johnson@gmail.com",
+                            EmployeeId = 4,
+                            PassWord = "ada2020!"
+                        },
+                        new
+                        {
+                            AdminId = 5,
+                            Email = "vokeoluwafemi@aol.com",
+                            EmployeeId = 5,
+                            PassWord = "ada2020!"
+                        },
+                        new
+                        {
+                            AdminId = 6,
+                            Email = "harryporter@yahoo.com",
+                            EmployeeId = 6,
+                            PassWord = "ada2020!"
+                        },
+                        new
+                        {
+                            AdminId = 7,
+                            Email = "israelruiz@outlook.com",
+                            EmployeeId = 7,
+                            PassWord = "ada2020!"
+                        },
+                        new
+                        {
+                            AdminId = 8,
+                            Email = "austin.capstone@outlook.com",
+                            EmployeeId = 8,
+                            PassWord = "ada2020!"
+                        });
+                });
+
             modelBuilder.Entity("HarrysGroceryStore.Models.Customer", b =>
                 {
                     b.Property<int>("CustomerId")
@@ -43,9 +130,6 @@ namespace HarrysGroceryStore.Migrations
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ZipCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -63,7 +147,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Howard",
                             PhoneNumber = "281-789-1201",
                             State = "Texas",
-                            UserId = 9,
                             ZipCode = "77786"
                         },
                         new
@@ -75,7 +158,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Walcot",
                             PhoneNumber = "281-789-1201",
                             State = "Texas",
-                            UserId = 10,
                             ZipCode = "77394"
                         },
                         new
@@ -87,7 +169,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Offodile",
                             PhoneNumber = "281-213-0090",
                             State = "Texas",
-                            UserId = 11,
                             ZipCode = "77092"
                         },
                         new
@@ -99,7 +180,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Eze",
                             PhoneNumber = "713-356-2190",
                             State = "Texas",
-                            UserId = 12,
                             ZipCode = "77492"
                         },
                         new
@@ -111,7 +191,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Miller",
                             PhoneNumber = "713-214-3345",
                             State = "Texas",
-                            UserId = 13,
                             ZipCode = "77041"
                         },
                         new
@@ -123,7 +202,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Biden",
                             PhoneNumber = "713-756-5412",
                             State = "Texas",
-                            UserId = 14,
                             ZipCode = "77125"
                         },
                         new
@@ -135,7 +213,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Jaden",
                             PhoneNumber = "281-789-1854",
                             State = "Texas",
-                            UserId = 15,
                             ZipCode = "77754"
                         },
                         new
@@ -147,7 +224,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Oladipo",
                             PhoneNumber = "281-451-1201",
                             State = "Texas",
-                            UserId = 16,
                             ZipCode = "77203"
                         },
                         new
@@ -159,7 +235,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Branch",
                             PhoneNumber = "281-789-0254",
                             State = "Texas",
-                            UserId = 17,
                             ZipCode = "77785"
                         },
                         new
@@ -171,7 +246,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Offodile",
                             PhoneNumber = "281-784-8901",
                             State = "Texas",
-                            UserId = 18,
                             ZipCode = "77251"
                         });
                 });
@@ -204,9 +278,6 @@ namespace HarrysGroceryStore.Migrations
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ZipCode")
                         .HasColumnType("nvarchar(max)");
 
@@ -225,7 +296,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Doe",
                             PhoneNumber = "281-216-9087",
                             State = "Texas",
-                            UserId = 1,
                             ZipCode = "77201"
                         },
                         new
@@ -238,7 +308,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Chan",
                             PhoneNumber = "713-623-3212",
                             State = "Texas",
-                            UserId = 2,
                             ZipCode = "77043"
                         },
                         new
@@ -251,7 +320,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Jonnas",
                             PhoneNumber = "281-203-1204",
                             State = "Texas",
-                            UserId = 3,
                             ZipCode = "77901"
                         },
                         new
@@ -264,7 +332,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Johnson",
                             PhoneNumber = "713-897-9087",
                             State = "Texas",
-                            UserId = 4,
                             ZipCode = "77874"
                         },
                         new
@@ -277,7 +344,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Oluwafemi",
                             PhoneNumber = "281-985-6675",
                             State = "Texas",
-                            UserId = 5,
                             ZipCode = "77523"
                         },
                         new
@@ -290,7 +356,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Porter",
                             PhoneNumber = "281-785-7842",
                             State = "Texas",
-                            UserId = 6,
                             ZipCode = "77244"
                         },
                         new
@@ -303,7 +368,6 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Ruiz",
                             PhoneNumber = "713-854-8741",
                             State = "Texas",
-                            UserId = 7,
                             ZipCode = "77879"
                         },
                         new
@@ -316,8 +380,182 @@ namespace HarrysGroceryStore.Migrations
                             LastName = "Capstone",
                             PhoneNumber = "281-741-1032",
                             State = "Texas",
-                            UserId = 8,
                             ZipCode = "77510"
+                        });
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OrderDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("SalesAmount")
+                        .HasColumnType("decimal(8,2)");
+
+                    b.Property<string>("ShipAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShipCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShippedDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Zipcode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OrderId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("Orders");
+
+                    b.HasData(
+                        new
+                        {
+                            OrderId = 10001,
+                            CustomerId = 1,
+                            EmployeeId = 8,
+                            OrderDate = "02/21/2021",
+                            SalesAmount = 50m,
+                            ShipAddress = "10612 Smith Street",
+                            ShipCity = "Pasadena",
+                            ShippedDate = "02/22/2021",
+                            State = "Texas",
+                            Zipcode = "77786"
+                        },
+                        new
+                        {
+                            OrderId = 10002,
+                            CustomerId = 2,
+                            EmployeeId = 7,
+                            OrderDate = "02/21/2021",
+                            SalesAmount = 30m,
+                            ShipAddress = "588 Alington Place",
+                            ShipCity = "Pearland",
+                            ShippedDate = "02/22/2021",
+                            State = "Texas",
+                            Zipcode = "77786"
+                        },
+                        new
+                        {
+                            OrderId = 10003,
+                            CustomerId = 3,
+                            EmployeeId = 6,
+                            OrderDate = "02/21/2021",
+                            SalesAmount = 40m,
+                            ShipAddress = "12145 South Loop West",
+                            ShipCity = "Houston",
+                            ShippedDate = "02/22/2021",
+                            State = "Texas",
+                            Zipcode = "77786"
+                        },
+                        new
+                        {
+                            OrderId = 10004,
+                            CustomerId = 4,
+                            EmployeeId = 5,
+                            OrderDate = "02/21/2021",
+                            SalesAmount = 60m,
+                            ShipAddress = "10612 Barker Street",
+                            ShipCity = "Katy",
+                            ShippedDate = "02/22/2021",
+                            State = "Texas",
+                            Zipcode = "77786"
+                        },
+                        new
+                        {
+                            OrderId = 10005,
+                            CustomerId = 5,
+                            EmployeeId = 4,
+                            OrderDate = "02/21/2021",
+                            SalesAmount = 70m,
+                            ShipAddress = "1239 Katy Lane #2512",
+                            ShipCity = "Crypress",
+                            ShippedDate = "02/22/2021",
+                            State = "Texas",
+                            Zipcode = "77786"
+                        },
+                        new
+                        {
+                            OrderId = 10006,
+                            CustomerId = 6,
+                            EmployeeId = 8,
+                            OrderDate = "02/21/2021",
+                            SalesAmount = 80m,
+                            ShipAddress = "10612 Holly Spring Ln",
+                            ShipCity = "Katy",
+                            ShippedDate = "02/22/2021",
+                            State = "Texas",
+                            Zipcode = "77786"
+                        },
+                        new
+                        {
+                            OrderId = 10007,
+                            CustomerId = 7,
+                            EmployeeId = 7,
+                            OrderDate = "02/21/2021",
+                            SalesAmount = 44m,
+                            ShipAddress = "612 Allan Street",
+                            ShipCity = "Houston",
+                            ShippedDate = "02/22/2021",
+                            State = "Texas",
+                            Zipcode = "77786"
+                        },
+                        new
+                        {
+                            OrderId = 10008,
+                            CustomerId = 8,
+                            EmployeeId = 6,
+                            OrderDate = "02/21/2021",
+                            SalesAmount = 64m,
+                            ShipAddress = "1612 London Circle",
+                            ShipCity = "Richmond Hills",
+                            ShippedDate = "02/22/2021",
+                            State = "Texas",
+                            Zipcode = "77786"
+                        },
+                        new
+                        {
+                            OrderId = 10009,
+                            CustomerId = 9,
+                            EmployeeId = 5,
+                            OrderDate = "02/21/2021",
+                            SalesAmount = 24m,
+                            ShipAddress = "5647 Smith Street",
+                            ShipCity = "Spring",
+                            ShippedDate = "02/22/2021",
+                            State = "Texas",
+                            Zipcode = "77786"
+                        },
+                        new
+                        {
+                            OrderId = 10010,
+                            CustomerId = 10,
+                            EmployeeId = 4,
+                            OrderDate = "02/21/2021",
+                            SalesAmount = 60m,
+                            ShipAddress = "8963 Houston Street",
+                            ShipCity = "Houston",
+                            ShippedDate = "02/22/2021",
+                            State = "Texas",
+                            Zipcode = "77786"
                         });
                 });
 
@@ -334,95 +572,99 @@ namespace HarrysGroceryStore.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<short>("Quantity")
-                        .HasColumnType("smallint");
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("UnitPrice")
                         .HasColumnType("decimal(8,2)");
 
                     b.HasKey("OrderDetailId");
 
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
                     b.ToTable("OrderDetails");
 
                     b.HasData(
                         new
                         {
-                            OrderDetailId = 1,
+                            OrderDetailId = 10001,
                             OrderId = 10001,
                             ProductId = 1,
-                            Quantity = (short)5,
+                            Quantity = 5,
                             UnitPrice = 10m
                         },
                         new
                         {
-                            OrderDetailId = 2,
+                            OrderDetailId = 10002,
                             OrderId = 10002,
                             ProductId = 2,
-                            Quantity = (short)3,
+                            Quantity = 3,
                             UnitPrice = 10m
                         },
                         new
                         {
-                            OrderDetailId = 3,
+                            OrderDetailId = 10003,
                             OrderId = 10003,
                             ProductId = 3,
-                            Quantity = (short)2,
+                            Quantity = 2,
                             UnitPrice = 20m
                         },
                         new
                         {
-                            OrderDetailId = 4,
+                            OrderDetailId = 10004,
                             OrderId = 10004,
                             ProductId = 4,
-                            Quantity = (short)6,
+                            Quantity = 6,
                             UnitPrice = 10m
                         },
                         new
                         {
-                            OrderDetailId = 5,
+                            OrderDetailId = 10005,
                             OrderId = 10005,
                             ProductId = 5,
-                            Quantity = (short)7,
+                            Quantity = 7,
                             UnitPrice = 10m
                         },
                         new
                         {
-                            OrderDetailId = 6,
+                            OrderDetailId = 10006,
                             OrderId = 10006,
                             ProductId = 6,
-                            Quantity = (short)4,
+                            Quantity = 4,
                             UnitPrice = 20m
                         },
                         new
                         {
-                            OrderDetailId = 7,
+                            OrderDetailId = 10007,
                             OrderId = 10007,
                             ProductId = 7,
-                            Quantity = (short)4,
+                            Quantity = 4,
                             UnitPrice = 11m
                         },
                         new
                         {
-                            OrderDetailId = 8,
+                            OrderDetailId = 10008,
                             OrderId = 10008,
                             ProductId = 8,
-                            Quantity = (short)4,
+                            Quantity = 4,
                             UnitPrice = 16m
                         },
                         new
                         {
-                            OrderDetailId = 9,
+                            OrderDetailId = 10009,
                             OrderId = 10009,
                             ProductId = 9,
-                            Quantity = (short)3,
+                            Quantity = 3,
                             UnitPrice = 8m
                         },
                         new
                         {
-                            OrderDetailId = 10,
+                            OrderDetailId = 10010,
                             OrderId = 10010,
                             ProductId = 10,
-                            Quantity = (short)3,
+                            Quantity = 3,
                             UnitPrice = 20m
                         });
                 });
@@ -447,6 +689,8 @@ namespace HarrysGroceryStore.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ProductId");
+
+                    b.HasIndex("SupplierId");
 
                     b.ToTable("Products");
 
@@ -613,190 +857,6 @@ namespace HarrysGroceryStore.Migrations
                         });
                 });
 
-            modelBuilder.Entity("HarrysGroceryStore.Models.SalesOrder", b =>
-                {
-                    b.Property<int>("OrderId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("OrderDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("OrderDetailId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("SalesAmount")
-                        .HasColumnType("decimal(8,2)");
-
-                    b.Property<string>("ShipAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ShipCity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ShippedDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("State")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Zipcode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("OrderId");
-
-                    b.ToTable("SalesOrders");
-
-                    b.HasData(
-                        new
-                        {
-                            OrderId = 10001,
-                            CustomerId = 1,
-                            EmployeeId = 8,
-                            OrderDate = "02/21/2021",
-                            OrderDetailId = 1,
-                            SalesAmount = 50m,
-                            ShipAddress = "10612 Smith Street",
-                            ShipCity = "Pasadena",
-                            ShippedDate = "02/22/2021",
-                            State = "Texas",
-                            Zipcode = "77786"
-                        },
-                        new
-                        {
-                            OrderId = 10002,
-                            CustomerId = 2,
-                            EmployeeId = 7,
-                            OrderDate = "02/21/2021",
-                            OrderDetailId = 2,
-                            SalesAmount = 30m,
-                            ShipAddress = "588 Alington Place",
-                            ShipCity = "Pearland",
-                            ShippedDate = "02/22/2021",
-                            State = "Texas",
-                            Zipcode = "77786"
-                        },
-                        new
-                        {
-                            OrderId = 10003,
-                            CustomerId = 3,
-                            EmployeeId = 6,
-                            OrderDate = "02/21/2021",
-                            OrderDetailId = 3,
-                            SalesAmount = 40m,
-                            ShipAddress = "12145 South Loop West",
-                            ShipCity = "Houston",
-                            ShippedDate = "02/22/2021",
-                            State = "Texas",
-                            Zipcode = "77786"
-                        },
-                        new
-                        {
-                            OrderId = 10004,
-                            CustomerId = 4,
-                            EmployeeId = 5,
-                            OrderDate = "02/21/2021",
-                            OrderDetailId = 4,
-                            SalesAmount = 60m,
-                            ShipAddress = "10612 Barker Street",
-                            ShipCity = "Katy",
-                            ShippedDate = "02/22/2021",
-                            State = "Texas",
-                            Zipcode = "77786"
-                        },
-                        new
-                        {
-                            OrderId = 10005,
-                            CustomerId = 5,
-                            EmployeeId = 4,
-                            OrderDate = "02/21/2021",
-                            OrderDetailId = 5,
-                            SalesAmount = 70m,
-                            ShipAddress = "1239 Katy Lane #2512",
-                            ShipCity = "Crypress",
-                            ShippedDate = "02/22/2021",
-                            State = "Texas",
-                            Zipcode = "77786"
-                        },
-                        new
-                        {
-                            OrderId = 10006,
-                            CustomerId = 6,
-                            EmployeeId = 8,
-                            OrderDate = "02/21/2021",
-                            OrderDetailId = 6,
-                            SalesAmount = 80m,
-                            ShipAddress = "10612 Holly Spring Ln",
-                            ShipCity = "Katy",
-                            ShippedDate = "02/22/2021",
-                            State = "Texas",
-                            Zipcode = "77786"
-                        },
-                        new
-                        {
-                            OrderId = 10007,
-                            CustomerId = 7,
-                            EmployeeId = 7,
-                            OrderDate = "02/21/2021",
-                            OrderDetailId = 7,
-                            SalesAmount = 44m,
-                            ShipAddress = "612 Allan Street",
-                            ShipCity = "Houston",
-                            ShippedDate = "02/22/2021",
-                            State = "Texas",
-                            Zipcode = "77786"
-                        },
-                        new
-                        {
-                            OrderId = 10008,
-                            CustomerId = 8,
-                            EmployeeId = 6,
-                            OrderDate = "02/21/2021",
-                            OrderDetailId = 8,
-                            SalesAmount = 64m,
-                            ShipAddress = "1612 London Circle",
-                            ShipCity = "Richmond Hills",
-                            ShippedDate = "02/22/2021",
-                            State = "Texas",
-                            Zipcode = "77786"
-                        },
-                        new
-                        {
-                            OrderId = 10009,
-                            CustomerId = 9,
-                            EmployeeId = 5,
-                            OrderDate = "02/21/2021",
-                            OrderDetailId = 9,
-                            SalesAmount = 24m,
-                            ShipAddress = "5647 Smith Street",
-                            ShipCity = "Spring",
-                            ShippedDate = "02/22/2021",
-                            State = "Texas",
-                            Zipcode = "77786"
-                        },
-                        new
-                        {
-                            OrderId = 10010,
-                            CustomerId = 10,
-                            EmployeeId = 4,
-                            OrderDate = "02/21/2021",
-                            OrderDetailId = 10,
-                            SalesAmount = 60m,
-                            ShipAddress = "8963 Houston Street",
-                            ShipCity = "Houston",
-                            ShippedDate = "02/22/2021",
-                            State = "Texas",
-                            Zipcode = "77786"
-                        });
-                });
-
             modelBuilder.Entity("HarrysGroceryStore.Models.Supplier", b =>
                 {
                     b.Property<int>("SupplierId")
@@ -854,9 +914,12 @@ namespace HarrysGroceryStore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PassWord")
                         .IsRequired()
@@ -865,117 +928,183 @@ namespace HarrysGroceryStore.Migrations
 
                     b.HasKey("UserId");
 
+                    b.HasIndex("CustomerId")
+                        .IsUnique();
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
                             UserId = 1,
-                            Email = "john.doe@aol.com",
-                            PassWord = "John2020!"
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            Email = "michael.chan@gmail.com",
-                            PassWord = "Mike2020!"
-                        },
-                        new
-                        {
-                            UserId = 3,
-                            Email = "claire4real@aol.com",
-                            PassWord = "beauty"
-                        },
-                        new
-                        {
-                            UserId = 4,
-                            Email = "smithJohnson@outlook.com.com",
-                            PassWord = "smitty1989!"
-                        },
-                        new
-                        {
-                            UserId = 5,
-                            Email = "voke.oluwafemi@aol.com",
-                            PassWord = "voke1900!"
-                        },
-                        new
-                        {
-                            UserId = 6,
-                            Email = "harryporter@aol.com",
-                            PassWord = "Porterisgood!"
-                        },
-                        new
-                        {
-                            UserId = 7,
-                            Email = "israelruiz@yahoo.com",
-                            PassWord = "Realsoccer!"
-                        },
-                        new
-                        {
-                            UserId = 8,
-                            Email = "austin.capstone@outlook.com",
-                            PassWord = "capstone!"
-                        },
-                        new
-                        {
-                            UserId = 9,
+                            CustomerId = 1,
                             Email = "genesishoward@aol.com",
                             PassWord = "baller21!"
                         },
                         new
                         {
-                            UserId = 10,
+                            UserId = 2,
+                            CustomerId = 2,
                             Email = "christianwalcot@aol.com",
                             PassWord = "christian2005!"
                         },
                         new
                         {
-                            UserId = 11,
+                            UserId = 3,
+                            CustomerId = 3,
                             Email = "ngozi.Offodile@gmail.com",
                             PassWord = "ngozi2021!"
                         },
                         new
                         {
-                            UserId = 12,
+                            UserId = 4,
+                            CustomerId = 4,
                             Email = "adaobieze@gmail.com",
                             PassWord = "ada2020!"
                         },
                         new
                         {
-                            UserId = 13,
+                            UserId = 5,
+                            CustomerId = 5,
                             Email = "tichellemiller@aol.com",
                             PassWord = "ada2020!"
                         },
                         new
                         {
-                            UserId = 14,
+                            UserId = 6,
+                            CustomerId = 6,
                             Email = "christainbiden@yahoo.com",
                             PassWord = "ada2020!"
                         },
                         new
                         {
-                            UserId = 15,
+                            UserId = 7,
+                            CustomerId = 7,
                             Email = "maryjaden@outlook.com",
                             PassWord = "ada2020!"
                         },
                         new
                         {
-                            UserId = 16,
+                            UserId = 8,
+                            CustomerId = 8,
                             Email = "judeoladipo@outlook.com",
                             PassWord = "ada2020!"
                         },
                         new
                         {
-                            UserId = 17,
+                            UserId = 9,
+                            CustomerId = 9,
                             Email = "chioma.branch@aol.com",
                             PassWord = "ada2020!"
                         },
                         new
                         {
-                            UserId = 18,
+                            UserId = 10,
+                            CustomerId = 10,
                             Email = "judeoffodile@yahoo.com",
                             PassWord = "ada2020!"
                         });
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.Admin", b =>
+                {
+                    b.HasOne("HarrysGroceryStore.Models.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.Order", b =>
+                {
+                    b.HasOne("HarrysGroceryStore.Models.Customer", "Customer")
+                        .WithMany("Orders")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrysGroceryStore.Models.Employee", "Employee")
+                        .WithMany("Orders")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.OrderDetail", b =>
+                {
+                    b.HasOne("HarrysGroceryStore.Models.Order", "Order")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HarrysGroceryStore.Models.Product", "Product")
+                        .WithMany("OrderDetail")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.Product", b =>
+                {
+                    b.HasOne("HarrysGroceryStore.Models.Supplier", "Supplier")
+                        .WithMany("Products")
+                        .HasForeignKey("SupplierId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Supplier");
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.User", b =>
+                {
+                    b.HasOne("HarrysGroceryStore.Models.Customer", "Customer")
+                        .WithOne("User")
+                        .HasForeignKey("HarrysGroceryStore.Models.User", "CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.Customer", b =>
+                {
+                    b.Navigation("Orders");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.Employee", b =>
+                {
+                    b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.Order", b =>
+                {
+                    b.Navigation("OrderDetails");
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.Product", b =>
+                {
+                    b.Navigation("OrderDetail");
+                });
+
+            modelBuilder.Entity("HarrysGroceryStore.Models.Supplier", b =>
+                {
+                    b.Navigation("Products");
                 });
 #pragma warning restore 612, 618
         }

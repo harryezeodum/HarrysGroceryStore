@@ -1,0 +1,54 @@
+﻿@model Order
+
+<h3> Order Detail </h3>
+<hr />
+<table>
+    <tr>
+        <th class="text-right"> Total Sales Amount: </th>
+        <td class="p-2"> @Model.SalesAmount.ToString("C") </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Order Date: </th>
+        <td class="p-2"> @Model.OrderDate </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Shipped Date: </th>
+        <td class="p-2"> @Model.ShippedDate </td>
+    </tr>
+    <tr>
+        <th class="text-right"> First Name: </th>
+        <td class="p-2"> @Model.Customer.FirstName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Last Name: </th>
+        <td class="p-2"> @Model.Customer.LastName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Address: </th>
+        <td> @Model.ShipAddress </td>
+    </tr>
+    <tr>
+        <th class="text-right"> City: </th>
+        <td class="p-2"> @Model.ShipCity </td>
+    </tr>
+    <tr>
+        <th class="text-right"> State: </th>
+        <td class="p-2"> @Model.State </td>
+    </tr>
+    <tr>
+        <th class="text-right"> ZipCode: </th>
+        <td class="p-2"> @Model.Zipcode </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Employee Firstname: </th>
+        <td class="p-2"> @Model.Employee.FirstName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Employee Lastname: </th>
+        <td class="p-2"> @Model.Employee.LastName </td>
+    </tr>
+</table>
+<hr />
+
+
+<a asp-controller="Order" asp-action="Index" asp-route-id="@Model.OrderId" class="btn btn-primary"> Back </a>

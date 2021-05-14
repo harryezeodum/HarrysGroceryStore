@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,7 +29,7 @@ namespace HarrysGroceryStore.Models
 
         public Supplier GetSupplierById(int supplierId)
         {
-            Supplier supplier = _context.Suppliers.Find(supplierId);
+            Supplier supplier = _context.Suppliers.Include(s => s.Products).Where(s => s.SupplierId == supplierId).FirstOrDefault();
             return supplier;
         }
 

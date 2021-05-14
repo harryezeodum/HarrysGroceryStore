@@ -1,0 +1,28 @@
+﻿@model IQueryable<Admin>
+
+
+<hr />
+@foreach (Admin a in Model)
+{
+    <label class="font-weight-bold"> Email: </label> @a.Email
+    <br />
+    <label class="font-weight-bold"> Password: </label> @a.PassWord
+    <br />
+    <label class="font-weight-bold"> First Name: </label> @a.Employee.FirstName
+    <br />
+    <label class="font-weight-bold"> Last Name: </label> @a.Employee.LastName
+    <br />
+    <label class="font-weight-bold"> Phone Number: </label> @a.Employee.PhoneNumber
+    <br />
+    <label class="font-weight-bold"> Hire Date: </label> @a.Employee.HireDate
+    <br />
+    <label class="font-weight-bold"> Address: </label> @a.Employee.Address
+    <br />
+    <label class="font-weight-bold"> City: </label> @a.Employee.City
+    <br />
+    <label class="font-weight-bold"> State: </label> @a.Employee.State
+    <br />
+    <label class="font-weight-bold"> Zipcode: </label> @a.Employee.ZipCode
+    <br />
+    <hr />
+}

@@ -2,7 +2,7 @@
 
 <form method="post">
     <input type="hidden" asp-for="CustomerId" />
-    <input type="hidden" asp-for="UserId" />
+    <input type="hidden" asp-for="User.UserId" />
     <table>
         <tr>
             <th><label class="font-weight-bold" asp-for="FirstName"> First Name: </label></th>
@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <th></th>
-            <td> <input type="submit" class="btn btn-dark" value="Update Customer" /> <input type="submit" class="btn btn-dark" asp-controller="Customer" asp-action="CustomerDetail" asp-route-id="@Model.CustomerId" value="Cancel" /> </td>
+            <td> <input type="submit" class="btn btn-primary" value="Update Customer" /> <input type="submit" class="btn btn-warning" asp-controller="User" asp-action="UserDetail" asp-route-id="@Model.User.UserId" value="Cancel" /> </td>
         </tr>
     </table>
 </form>

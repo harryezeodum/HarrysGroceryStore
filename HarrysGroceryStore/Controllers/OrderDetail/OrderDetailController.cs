@@ -17,17 +17,33 @@ namespace HarrysGroceryStore.Controllers
             _repository = repository;
         }
 
-        public IActionResult Index(int orderDetailPage = 1)
+        [HttpGet]
+        public IActionResult AddOrderDetail(int orderId, int employeeId, int customerId)
+        {
+            OrderDetail od = new OrderDetail();
+            od.OrderId = orderId;
+
+            return View(od);
+        }
+
+        [HttpPost]
+        public IActionResult AddOrderDetail(OrderDetail od)
+        {
+            _repository.AddOrderDetail(od);
+            return RedirectToAction("OrderDetail", "Order", new { id = od.OrderId });
+        }
+
+        public IActionResult Index(int page = 1)
         {
             IQueryable<OrderDetail> allOrderDetails = _repository.GetAllOrderDetails();
-            IQueryable<OrderDetail> someOrderDetails = allOrderDetails.OrderBy(p => p.OrderDetailId).Skip((orderDetailPage - 1) * _pageSize).Take(_pageSize);
+            IQueryable<OrderDetail> someOrderDetails = allOrderDetails.OrderBy(p => p.OrderDetailId).Skip((page - 1) * _pageSize).Take(_pageSize);
 
             ListViewModel lvm = new ListViewModel();
 
             PagingInfo pi = new PagingInfo();
             pi.TotalItems = allOrderDetails.Count();
             pi.ItemsPerPage = _pageSize;
-            pi.CurrentPage = orderDetailPage;
+            pi.CurrentPage = page;
 
             lvm.PagingInformation = pi;
 

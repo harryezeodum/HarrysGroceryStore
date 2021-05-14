@@ -1,8 +1,10 @@
 ﻿@model Customer
 
-<label class="font-weight-bold"> Customer Id: </label> @Model.CustomerId
+<label class="font-weight-bold"> Email: </label> @Model.User.Email
 <br />
-<label class="font-weight-bold"> User Id: </label> @Model.UserId
+<label class="font-weight-bold"> Password: </label> @Model.User.PassWord
+<br />
+<label class="font-weight-bold"> Customer Id: </label> @Model.CustomerId
 <br />
 <label class="font-weight-bold"> First Name: </label> @Model.FirstName
 <br />
@@ -21,6 +23,6 @@
 <hr />
 <h4> Are You Sure? </h4>
 <form method="post">
-    <input type="submit" asp-action="DeleteCustomer" class="btn btn-dark" value="Delete" />
-    <input type="submit" asp-action="CustomerDetail" class="btn btn-dark" asp-route-id="@Model.CustomerId" formmethod="get" value="Cancel" />
+    <input type="submit" asp-action="DeleteCustomer" class="btn btn-danger" value="Delete" />
+    <input type="submit" asp-action="CustomerDetail" class="btn btn-warning" asp-route-id="@Model.CustomerId" formmethod="get" value="Cancel" />
 </form>

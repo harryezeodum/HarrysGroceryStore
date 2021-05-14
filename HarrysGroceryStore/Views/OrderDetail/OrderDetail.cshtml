@@ -1,18 +1,27 @@
 ﻿@model OrderDetail
 
-<label class="font-weight-bold"> OrderDetail Id: </label> @Model.OrderId
-<br />
-<label class="font-weight-bold"> Order Id: </label> @Model.OrderId
-<br />
-<label class="font-weight-bold"> Product Id: </label> @Model.ProductId
-<br />
-<label class="font-weight-bold"> Unit Price: </label> @Model.UnitPrice.ToString("C")
-<br />
-<label class="font-weight-bold"> Quantity: </label> @Model.Quantity
-<br />
-
+<table>
+    <tr>
+        <th class="text-right"> Product Name: </th>
+        <td class="p-2"> @Model.Product.ProductName </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Category: </th>
+        <td class="p-2"> @Model.Product.Category </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Unit Price: </th>
+        <td class="p-2"> @Model.UnitPrice.ToString("C") </td>
+    </tr>
+    <tr>
+        <th class="text-right"> Quantity: </th>
+        <td class="p-2"> @Model.Quantity </td>
+    </tr>
+</table>
 <hr />
 
-<a asp-controller="OrderDetail" asp-action="UpdateOrderDetail" asp-route-id="@Model.OrderDetailId" class="btn btn-dark"> Edit OrderDetail </a>
-<a asp-controller="OrderDetail" asp-action="DeleteOrderDetail" class="btn btn-dark" asp-route-id="@Model.OrderDetailId"> Delete OrderDetail </a>
-<a asp-controller="OrderDetail" asp-action="Index" asp-route-id="@Model.OrderDetailId" class="btn btn-dark"> Back </a>
+
+<a asp-controller="OrderDetail" asp-action="AddOrderDetail" asp-route-orderId="@Model.OrderId" asp-route-product="@Model.ProductId" class="btn btn-primary"> Add a new Item </a>
+<a asp-controller="OrderDetail" asp-action="UpdateOrderDetail" asp-route-id="@Model.OrderDetailId" class="btn btn-primary"> Edit OrderDetail </a>
+<a asp-controller="OrderDetail" asp-action="DeleteOrderDetail" class="btn btn-primary" asp-route-id="@Model.OrderDetailId"> Delete OrderDetail </a>
+<a asp-controller="Order" asp-action="OrderDetail" asp-route-id="@Model.OrderId" class="btn btn-primary"> Back </a>

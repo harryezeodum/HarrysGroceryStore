@@ -6,7 +6,7 @@
 <hr />
 
 @foreach (var supplier in Model.Suppliers)
- {
+{
     <div class="card card-outline-primary m-1 p-1">
         <div class="fg-faded p-1">
             <h4>
@@ -14,9 +14,10 @@
             </h4>
         </div>
     </div>
- }
+}
 
 <a asp-controller="Supplier" asp-action="AddSupplier" class="btn btn-dark"> Add a new Supplier </a>
+<a asp-controller="Home" asp-action="AdminMain" class="ml-2 btn btn-warning">Back</a>
 <hr />
 
 <div page-model="@Model.PagingInformation" page-action="Index" page-class-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>

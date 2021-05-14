@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,27 +9,57 @@ namespace HarrysGroceryStore.Models
     public class EfCustomerRepository : ICustomerRepository
     {
         private AppDbContext _context;
+        private IUserRepository _userRepository;
 
-        public EfCustomerRepository(AppDbContext context)
+        public EfCustomerRepository(AppDbContext context, IUserRepository userRepository)
         {
             _context = context;
+            _userRepository = userRepository;
         }
 
-        public Customer AddCustomer(Customer customer)
+        public Customer Create(Customer customer)
         {
-            _context.Customers.Add(customer);
-            _context.SaveChanges();
-            return customer; ;
+                try
+                {
+                    _context.Customers.Add(customer);
+                    _context.SaveChanges();                  
+                }
+                catch (Exception e)
+                {
+
+                }
+                return customer;
         }
 
-        public IQueryable<Customer> GetAllCustomers()
+        public IQueryable<Customer> GetAllAdminCustomers()
         {
             return _context.Customers;
+        }
+        
+        public IQueryable<Customer> GetAllCustomers()
+        {
+            if (_userRepository.IsUserLoggedIn())
+            {
+                return _context.Customers.Where(c => c.CustomerId == _userRepository.GetLoggedInUserId());
+            }
+            Customer[] NoCustomers = new Customer[0];
+            return NoCustomers.AsQueryable<Customer>();
+            
         }
 
         public Customer GetCustomerById(int customerId)
         {
-            Customer customer = _context.Customers.Find(customerId);
+            if (_userRepository.IsUserLoggedIn())
+            {
+                Customer customer = _context.Customers.Include(customer => customer.Orders).Include(user => user.User).Where(customer => customer.CustomerId == customerId && customer.User.UserId == _userRepository.GetLoggedInUserId()).FirstOrDefault();
+                return customer;
+            }
+            return null;         
+        }
+
+        public Customer GetAdminCustomerById(int customerId)
+        {
+            Customer customer = _context.Customers.Include(customer => customer.Orders).Include(user => user.User).Where(customer => customer.CustomerId == customerId).FirstOrDefault();
             return customer;
         }
 
@@ -38,7 +69,7 @@ namespace HarrysGroceryStore.Models
             return customers;
         }
 
-        public Customer UpdateCustomer(Customer customer)
+        public Customer Update(Customer customer)
         {
             Customer customerToUpdate = _context.Customers.Find(customer.CustomerId);
             if (customerToUpdate != null)
@@ -55,7 +86,7 @@ namespace HarrysGroceryStore.Models
             return customerToUpdate;
         }
 
-        public bool DeleteCustomer(int id)
+        public bool Delete(int id)
         {
             Customer customerToDelete = GetCustomerById(id);
             if (customerToDelete == null)

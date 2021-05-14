@@ -1,7 +1,16 @@
 ﻿@model Customer
 
 <form asp-controller="Customer" asp-action="AddCustomer" method="post">
+    <input type="hidden" asp-for="CustomerId" />
     <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="User.Email"> Email: </label></th>
+            <td> <input asp-for="User.Email" placeholder="Enter your email" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="User.PassWord"> Choose a password: </label> </th>
+            <td> <input asp-for="User.PassWord" type="password" placeholder="*************" /> </td>
+        </tr>
         <tr>
             <th><label class="font-weight-bold" asp-for="FirstName"> First Name: </label></th>
             <td> <input asp-for="FirstName" /> </td>
@@ -32,7 +41,7 @@
         </tr>
         <tr>
             <th></th>
-            <td> <input type="submit" class="btn btn-dark" value="Add Customer" /> <input type="submit" class="btn btn-dark" asp-action="Index" value="Back" /> </td>
+            <td> <input type="submit" class="btn btn-primary" value="Add New Customer" /> <input type="submit" class="btn btn-warning" asp-action="Index" value="Back" /> </td>
         </tr>
     </table>
 </form>

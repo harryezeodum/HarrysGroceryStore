@@ -1,0 +1,57 @@
+﻿@model Order
+@inject IEmployeeRepository _employeRepository
+
+<form method="post">
+    <input type="hidden" asp-for="OrderId" />
+    <input type="hidden" asp-for="CustomerId" />
+    <input type="hidden" asp-for="EmployeeId" />
+    <table>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="SalesAmount"> Sales Amount: </label></th>
+            <td> <input asp-for="SalesAmount" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="OrderDate"> Order Date: </label></th>
+            <td> <input asp-for="OrderDate" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="ShippedDate"> Shipped Date: </label> </th>
+            <td> <input asp-for="ShippedDate" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="ShipAddress">  Address: </label></th>
+            <td> <input asp-for="ShipAddress" /> </td>
+        </tr>
+        <tr>
+            <th> <label class="font-weight-bold" asp-for="ShipCity"> City: </label> </th>
+            <td> <input asp-for="ShipCity" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="State"> State: </label></th>
+            <td> <input asp-for="State" /> </td>
+        </tr>
+        <tr>
+            <th><label class="font-weight-bold" asp-for="Zipcode"> ZipCode: </label></th>
+            <td> <input asp-for="Zipcode" /> </td>
+        </tr>
+        <tr>
+            <th>
+                <label class="font-weight-bold" asp-for="EmployeeId"> Employee: </label>
+            </th>
+            <td>
+                <select asp-for="EmployeeId">
+                    @foreach (Employee e in _employeRepository.GetAllEmployees())
+                    {
+                        <option value="@e.EmployeeId">
+                            @e.FirstName @e.LastName
+                        </option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td> <input type="submit" class="btn btn-primary" value="Update Order" /> <input type="submit" class="btn btn-warning" asp-controller="Order" asp-action="AdminOrderDetail" asp-route-id="@Model.OrderId" value="Cancel" /> </td>
+        </tr>
+    </table>
+</form>

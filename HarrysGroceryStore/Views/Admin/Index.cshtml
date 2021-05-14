@@ -1,0 +1,24 @@
+﻿@model ListViewModel
+
+<div class="bg-dark p-2 text-white text-center">
+    <h3><span class="navbar-brand ml-2 badge"> List of @Model.Admins.Count() Admins </span></h3>
+</div>
+<hr />
+
+<strong>
+    <ol>
+        @foreach (var admin in Model.Admins)
+        {
+            <li>
+                <h5> <a asp-controller="Admin" asp-action="AdminDetail" asp-route-id="@admin.AdminId">@admin.Email </a> </h5>
+            </li>
+            <hr />
+        }
+    </ol>
+</strong>
+
+<a asp-controller="Admin" asp-action="AddAdmin" class="btn btn-primary"> Add a New Admin </a>
+<hr />
+
+<div page-model="@Model.PagingInformation" page-action="Index" page-class-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" page-class-selected="btn-primary" class="btn-group pull-right m-1"></div>
+

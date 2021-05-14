@@ -1,0 +1,31 @@
+﻿@model IEnumerable<string>
+
+
+<h3> Categories </h3>
+@if (ViewBag.SelectedCategory == null)
+{
+    <a class="btn btn-block btn-primary"
+       asp-action="Index" asp-controller="Product"
+       asp-route-category="">
+        Home (All Categories)
+    </a>
+}
+else
+{
+<a class="btn btn-block btn-outline-secondary"
+   asp-action="Index" asp-controller="Product"
+   asp-route-category="">
+    Home (All Categories)
+</a>
+}
+
+@foreach (string category in Model)
+{
+    <a class="btn btn-block @(category == ViewBag.SelectedCategory ? "btn-primary": "btn-outline-secondary")"
+       asp-action="Index" asp-controller="Product"
+       asp-route-category="@category"
+       asp-route-page="1">
+        @category
+    </a>
+}
+

@@ -1,0 +1,28 @@
+﻿@model Admin
+
+<label class="font-weight-bold"> Email: </label> @Model.Email
+<br />
+<label class="font-weight-bold"> Password: </label> @Model.PassWord
+<br />
+<label class="font-weight-bold"> First Name: </label> @Model.Employee.FirstName
+<br />
+<label class="font-weight-bold"> Last Name: </label> @Model.Employee.LastName
+<br />
+<label class="font-weight-bold"> Phone Number: </label> @Model.Employee.PhoneNumber
+<br />
+<label class="font-weight-bold"> Hire Date: </label> @Model.Employee.HireDate
+<br />
+<label class="font-weight-bold"> Address: </label> @Model.Employee.Address
+<br />
+<label class="font-weight-bold"> City: </label> @Model.Employee.City
+<br />
+<label class="font-weight-bold"> State: </label> @Model.Employee.State
+<br />
+<label class="font-weight-bold"> Zipcode: </label> @Model.Employee.ZipCode
+<br />
+<hr />
+
+<a asp-controller="Admin" asp-action="UpdateAdmin" asp-route-id="@Model.AdminId" class="btn btn-primary"> Edit Admin </a>
+<a asp-controller="Employee" asp-action="UpdateEmployee" asp-route-id="@Model.EmployeeId" class="btn btn-primary"> Edit Employee Info </a>
+<a asp-controller="Admin" asp-action="DeleteAdmin" class="btn btn-danger" asp-route-id="@Model.AdminId"> Delete User </a>
+<a asp-controller="Admin" asp-action="Index" asp-route-id="@Model.AdminId" class="btn btn-warning"> Back </a>

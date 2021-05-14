@@ -7,6 +7,8 @@ namespace HarrysGroceryStore.Models
 {
     public interface IOrderDetailRepository
     {
+        public OrderDetail AddOrderDetail(OrderDetail orderDetail);
+        
         public IQueryable<OrderDetail> GetAllOrderDetails();
 
         public OrderDetail GetOrderDetailById(int orderId);

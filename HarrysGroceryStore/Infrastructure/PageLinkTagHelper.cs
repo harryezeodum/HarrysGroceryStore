@@ -17,6 +17,11 @@ namespace HarrysGroceryStore.Infrastructure
     {
         private IUrlHelperFactory _urlHelperFactory;
 
+        public PageLinkTagHelper(IUrlHelperFactory helperFactory)
+        {
+            _urlHelperFactory = helperFactory;
+        }
+
         public string PageAction { get; set; }
 
         public string PageClass { get; set; }
@@ -29,14 +34,12 @@ namespace HarrysGroceryStore.Infrastructure
 
         public PagingInfo PageModel { get; set; }
 
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> PageUrlValues { get; set; } = new Dictionary<string, object>();
+
         [ViewContext]
         [HtmlAttributeNotBound]
         public ViewContext ViewContext { get; set; }
-
-        public PageLinkTagHelper(IUrlHelperFactory helperFactory)
-        {
-            _urlHelperFactory = helperFactory;
-        }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -45,7 +48,10 @@ namespace HarrysGroceryStore.Infrastructure
             for (int i = 1; i <= PageModel.TotalPages(); i++)
             {
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { userPage = i });
+
+                PageUrlValues["page"] = i;
+                //tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+                tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);
 
                 if (PageClassEnabled)
                 {
@@ -59,11 +65,10 @@ namespace HarrysGroceryStore.Infrastructure
                         tag.AddCssClass(PageClassNormal);
                     }
                 }
-                tag.InnerHtml.Append($"{i}");
+                tag.InnerHtml.Append(i.ToString());
                 result.InnerHtml.AppendHtml(tag);
-                output.Content.AppendHtml(result.InnerHtml);
             }
-            
+            output.Content.AppendHtml(result.InnerHtml);
         }
     }
 }
